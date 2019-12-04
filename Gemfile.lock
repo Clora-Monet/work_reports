@@ -45,6 +45,11 @@ GEM
     byebug (11.0.1)
     chart-js-rails (0.1.7)
       railties (> 3.1)
+    chartable (0.0.0.3)
+      activesupport (>= 3.0.0)
+      chronic (~> 0.10)
+    chartkick (3.3.0)
+    chronic (0.10.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -61,6 +66,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.11.3)
@@ -209,8 +216,11 @@ PLATFORMS
 DEPENDENCIES
   byebug
   chart-js-rails
+  chartable
+  chartkick
   coffee-rails (~> 4.2)
   devise
+  erb2haml
   font-awesome-sass
   gon
   haml-rails

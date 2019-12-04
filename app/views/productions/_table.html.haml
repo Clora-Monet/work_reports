@@ -1,0 +1,71 @@
+.tables
+  %table.table
+    %thead
+      %tr
+        %th 時間
+      %tr
+        %td 7:00~8:00
+      %tr
+        %td 8:00~9:00
+      %tr
+        %td 9:00~10:00
+      %tr
+        %td 11:00~12:00
+      %tr
+        %td 13:00~14:00
+      %tr
+        %td 14:00~15:00
+      %tr
+        %td 15:00~16:00
+      %tr
+        %td 16:00~17:00
+      %tr
+        %td 18:00~19:00
+      %tr
+        %td 19:00~20:00
+      %tr
+        %td 20:00~21:00
+      %tr
+        %td 21:00~22:00
+      %tr
+        %td 22:00~23:00
+      %tr
+        %td 23:00~00:00
+      %tr
+        %td 00:00~01:00
+      %tr
+        %td 01:00~02:00
+      %tr
+        %td 02:00~03:00
+      %tr
+        %td 03:00~04:00
+      %tr
+        %td 04:00~05:00
+      %tr
+        %td 05:00~06:00
+      %tr
+        %td 06:00~07:00
+    
+
+  %table.table
+    %thead
+      %tr
+        %th 実数
+        %th 累計
+        %th タスクの内容
+        %th 箱_begin
+        %th ~
+        %th 箱_end
+
+  %table.table
+    %thead
+      %tr
+        %th テスト
+      %tr
+        %td 実数
+
+  = form_for [@begin_box], url: line_productions_path do |f|
+    = f.text_field :begin_box07
+    = f.text_field :begin_box08
+    = f.text_field :begin_box09
+    = f.submit 'Send', class: 'main__form__send-btn'

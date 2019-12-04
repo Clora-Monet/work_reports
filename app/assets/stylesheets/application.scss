@@ -1,0 +1,10 @@
+@import "./reset";
+@import "lines";
+@import "productions";
+.main{
+  color: black;
+}
+
+.tables{
+  display: flex;
+}
