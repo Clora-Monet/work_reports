@@ -1,3 +1,272 @@
-.wrapper
-  = render "table"
-  = render "graph"
+-# = render "table"
+-# = render "graph"
+
+.index 
+  .form 
+    .form__info 
+      .form__info__date
+        2019/01/01
+      .form__info__post
+        %input.form__info__post__btn{type: "submit", value: "送信"}/
+        -# %input{type="submit", class:"form__info__post__btn" value="送信"}
+    .form__table
+      %table.table
+        %thead
+          %tr
+            %th 時間
+            %th 実数
+            %th 累計
+            %th 箱
+            %th _
+            %th 数
+          %tr
+            %td 7:00~8:00
+            %td 1000
+            %td 1000
+            %td
+              %input{name: "begin_box00", type: "number", class: "input_number"}/
+            %td　~
+            %td　3
+          %tr
+            %td 8:00~9:00
+            %td 1000
+            %td 2000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 9:00~10:00
+            %td 1000
+            %td 3000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 10:00~11:00
+            %td 1000
+            %td 3000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 11:00~12:00
+            %td 1000
+            %td 4000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 12:00~13:00
+            %td 1000
+            %td 4000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 13:00~14:00
+            %td 1000
+            %td 5000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 14:00~15:00
+            %td 1000
+            %td 6000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 15:00~16:00
+            %td 1000
+            %td 7000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 16:00~17:00
+            %td 1000
+            %td 8000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 17:00~18:00
+            %td 1000
+            %td 8000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 18:00~19:00
+            %td 1000
+            %td 9000
+            %td　11
+            %td　~
+            %td　23
+          %tr
+            %td 19:00~20:00
+            %td 1000
+            %td 10000
+            %td　15
+            %td　~
+            %td　34
+          %tr
+            %td 20:00~21:00
+            %td 1000
+            %td 11000
+            %td　11
+            %td　~
+            %td　31
+          %tr
+            %td 21:00~22:00
+            %td 1000
+            %td 12000
+            %td　121
+            %td　~
+            %td　143
+          %tr
+            %td 22:00~23:00
+            %td 1000
+            %td 13000
+            %td　110
+            %td　~
+            %td　123
+          %tr
+            %td 23:00~00:00
+            %td 1000
+            %td 14000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 00:00~01:00
+            %td 1000
+            %td 15000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 01:00~02:00
+            %td 1000
+            %td 16000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 02:00~03:00
+            %td 1000
+            %td 17000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 03:00~04:00
+            %td 1000
+            %td 18000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 04:00~05:00
+            %td 1000
+            %td 22000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 05:00~06:00
+            %td 1000
+            %td 22000
+            %td　1
+            %td　~
+            %td　3
+          %tr
+            %td 06:00~07:00
+            %td 1000
+            %td 24000
+            %td　1
+            %td　~
+            %td　3
+  .main 
+    .main__product
+      .main__product__line
+        8F-16
+      .main__product__info
+        .main__product__info__code
+          029394992
+        .main__product__info__name
+          KTSLL
+    .main__graph
+      .main__graph__image
+        %canvas#myChart{height: "450", width: "850"}
+        :javascript
+          var ctx = document.getElementById("myChart").getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: gon.date,
+              datasets: [{
+                label: "累計生産数",
+                data: gon.cumulative_production,
+                type: 'line',
+                yAxisID: "y-axis-2",
+                fill: false,
+                borderColor: 'rgba(52, 147, 255, 1.0)',
+              },{
+                label: "予想",
+                data: gon.prediction,
+                type: 'line',
+                fill: false,
+                yAxisID: "y-axis-2",
+                borderColor: 'rgba(125, 215, 135, 1.0)',
+              },{
+                label: "生産数",
+                data: gon.production,
+                backgroundColor: 'rgba(255, 99, 132, 1.0)',
+                borderColor: 'rgba(255, 50, 132, 1.0)',
+                fill: false,
+                categoryPercentage: 1,
+                yAxisID: "y-axis-1",
+              }]
+            },
+            options: {
+              title:  {
+                display: true,
+                text: "今日の生産数"
+              },
+              scales: {
+                xAxes:[{
+                  categoryPercentage: 1,
+                }],
+                yAxes: [{
+                  id: "y-axis-1",
+                  type: "linear",
+                  position: "left",
+                  scaleLabel: {
+                    display: true,
+                    labelString: "一時間当たりの生産数",
+                    fontSize: 14,
+                    fontColor: 'rgba(255, 99, 132, 1.0)'
+                  },
+                  ticks: {
+                    beginAtZero:true
+                  }
+                },{
+                  id: "y-axis-2",
+                  type: "linear",
+                  position: "right",
+                  scaleLabel: {
+                    display: true,
+                    labelString: "累計生産数",
+                    fontSize: 14,
+                    fontColor: 'rgba(52, 147, 255, 1.0)'
+                  },
+                  ticks: {
+                    beginAtZero:true
+                  }
+                }]
+              }
+            }
+          });
+
