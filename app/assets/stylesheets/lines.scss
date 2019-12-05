@@ -18,8 +18,10 @@
     }
     &__lines-list {
       background: #EFEBDD;
+      overflow: scroll;
       display: flex;
       width: 320px;
+      height: 500px;
       padding: 10px;
       flex-direction: column;
       border-radius: 10px;

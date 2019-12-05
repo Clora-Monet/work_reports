@@ -17,11 +17,11 @@ html, body {
       display: flex;
       margin-top: 10px;
       margin-left: 30px;
+      line-height: 50px;
       &__date {
-        background: coral;
-        padding: 0 10px;
+        // background: coral;
         height: 50px;
-        width: 180px;
+        width: 150px;
         line-height: 50px;
         border-radius: 5px;
       }
@@ -117,7 +117,6 @@ html, body {
       height: calc(100vh - 190px);
       &__image {
         // background: cadetblue;
-        margin-top: 10px;
         height: 450px;
         width: 900px;
       }

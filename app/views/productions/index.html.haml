@@ -3,14 +3,13 @@
 
 .index 
   .form
-    = form_for [@begin_box], url: line_productions_path do |f|
+    = form_for [@production], url: line_productions_path do |f|
       .form__info 
+        日付：
         .form__info__date
-          2019/01/01
+          = f.date_field :date
         .form__info__post
           = f.submit '送信', class: "form__info__post__btn"
-          -# %input.form__info__post__btn{type: "submit", value: "送信"}/
-          -# %input{type="submit", class:"form__info__post__btn" value="送信"}
       .form__table
         %table.table
           %thead
@@ -240,10 +239,10 @@
   .main 
     .main__product
       .main__product__line
-        8F-16
+        = @line.name
       .main__product__info
         .main__product__info__code
-          029394992
+          %input{:max => "100", :min => "0", :placeholder => "x10", :step => "10", :type => "number"}/
         .main__product__info__name
           KTSLL
     .main__graph

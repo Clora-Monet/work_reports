@@ -3,9 +3,10 @@
     .contents__title
       ライン一覧
     .contents__lines-list
-      .contents__lines-list__line
-        = link_to "/lines/1/productions", class: "contents__lines-list__line__btn" do
-          8F-16
-      .contents__lines-list__line
-        = link_to "/lines/1/productions", class: "contents__lines-list__line__btn" do
-          8F-9
+      - @lines.each do |line|
+        .contents__lines-list__line
+          = link_to line_productions_path(line), class: "contents__lines-list__line__btn" do
+            = line.name
+      -# .contents__lines-list__line
+      -#   = link_to "/lines/1/productions", class: "contents__lines-list__line__btn" do
+      -#     8F-9
