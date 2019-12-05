@@ -54,6 +54,9 @@ html, body {
       tr:nth-child(odd) {
         background-color:  #ddd;    /* 背景色指定 */
       }
+      .input_area {
+        padding: 0px;
+      }
     }
   }
   .main {
@@ -123,5 +126,7 @@ html, body {
 }
 
 .input_number {
-  width: 37px;
+  width: 33px;
+  height: 15px;
 }
+

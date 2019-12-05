@@ -2,192 +2,241 @@
 -# = render "graph"
 
 .index 
-  .form 
-    .form__info 
-      .form__info__date
-        2019/01/01
-      .form__info__post
-        %input.form__info__post__btn{type: "submit", value: "送信"}/
-        -# %input{type="submit", class:"form__info__post__btn" value="送信"}
-    .form__table
-      %table.table
-        %thead
-          %tr
-            %th 時間
-            %th 実数
-            %th 累計
-            %th 箱
-            %th _
-            %th 数
-          %tr
-            %td 7:00~8:00
-            %td 1000
-            %td 1000
-            %td
-              %input{name: "begin_box00", type: "number", class: "input_number"}/
-            %td　~
-            %td　3
-          %tr
-            %td 8:00~9:00
-            %td 1000
-            %td 2000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 9:00~10:00
-            %td 1000
-            %td 3000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 10:00~11:00
-            %td 1000
-            %td 3000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 11:00~12:00
-            %td 1000
-            %td 4000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 12:00~13:00
-            %td 1000
-            %td 4000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 13:00~14:00
-            %td 1000
-            %td 5000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 14:00~15:00
-            %td 1000
-            %td 6000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 15:00~16:00
-            %td 1000
-            %td 7000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 16:00~17:00
-            %td 1000
-            %td 8000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 17:00~18:00
-            %td 1000
-            %td 8000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 18:00~19:00
-            %td 1000
-            %td 9000
-            %td　11
-            %td　~
-            %td　23
-          %tr
-            %td 19:00~20:00
-            %td 1000
-            %td 10000
-            %td　15
-            %td　~
-            %td　34
-          %tr
-            %td 20:00~21:00
-            %td 1000
-            %td 11000
-            %td　11
-            %td　~
-            %td　31
-          %tr
-            %td 21:00~22:00
-            %td 1000
-            %td 12000
-            %td　121
-            %td　~
-            %td　143
-          %tr
-            %td 22:00~23:00
-            %td 1000
-            %td 13000
-            %td　110
-            %td　~
-            %td　123
-          %tr
-            %td 23:00~00:00
-            %td 1000
-            %td 14000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 00:00~01:00
-            %td 1000
-            %td 15000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 01:00~02:00
-            %td 1000
-            %td 16000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 02:00~03:00
-            %td 1000
-            %td 17000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 03:00~04:00
-            %td 1000
-            %td 18000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 04:00~05:00
-            %td 1000
-            %td 22000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 05:00~06:00
-            %td 1000
-            %td 22000
-            %td　1
-            %td　~
-            %td　3
-          %tr
-            %td 06:00~07:00
-            %td 1000
-            %td 24000
-            %td　1
-            %td　~
-            %td　3
+  .form
+    = form_for [@begin_box], url: line_productions_path do |f|
+      .form__info 
+        .form__info__date
+          2019/01/01
+        .form__info__post
+          = f.submit '送信', class: "form__info__post__btn"
+          -# %input.form__info__post__btn{type: "submit", value: "送信"}/
+          -# %input{type="submit", class:"form__info__post__btn" value="送信"}
+      .form__table
+        %table.table
+          %thead
+            %tr
+              %th 時間
+              %th 実数
+              %th 累計
+              %th 箱
+              %th _
+              %th 数
+            %tr
+              %td 7:00~8:00
+              %td 1000
+              %td 1000
+              %td.input_area
+                = f.text_field :begin_box00, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box00, class: "input_number"
+            %tr
+              %td 8:00~9:00
+              %td 1000
+              %td 2000
+              %td.input_area
+                = f.text_field :begin_box01, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box01, class: "input_number"
+            %tr
+              %td 9:00~10:00
+              %td 1000
+              %td 3000
+              %td.input_area
+                = f.text_field :begin_box02, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box02, class: "input_number"
+            %tr
+              %td 10:00~11:00
+              %td 1000
+              %td 3000
+              %td.input_area
+                = f.text_field :begin_box03, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box03, class: "input_number"
+            %tr
+              %td 11:00~12:00
+              %td 1000
+              %td 4000
+              %td.input_area
+                = f.text_field :begin_box04, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box04, class: "input_number"
+            %tr
+              %td 12:00~13:00
+              %td 1000
+              %td 4000
+              %td.input_area
+                = f.text_field :begin_box05, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box05, class: "input_number"
+            %tr
+              %td 13:00~14:00
+              %td 1000
+              %td 5000
+              %td.input_area
+                = f.text_field :begin_box06, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box06, class: "input_number"
+            %tr
+              %td 14:00~15:00
+              %td 1000
+              %td 6000
+              %td.input_area
+                = f.text_field :begin_box07, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box07, class: "input_number"
+            %tr
+              %td 15:00~16:00
+              %td 1000
+              %td 7000
+              %td.input_area
+                = f.text_field :begin_box08, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box08, class: "input_number"
+            %tr
+              %td 16:00~17:00
+              %td 1000
+              %td 8000
+              %td.input_area
+                = f.text_field :begin_box09, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box09, class: "input_number"
+            %tr
+              %td 17:00~18:00
+              %td 1000
+              %td 8000
+              %td.input_area
+                = f.text_field :begin_box10, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box10, class: "input_number"
+            %tr
+              %td 18:00~19:00
+              %td 1000
+              %td 9000
+              %td.input_area
+                = f.text_field :begin_box11, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box11, class: "input_number"
+            %tr
+              %td 19:00~20:00
+              %td 1000
+              %td 10000
+              %td.input_area
+                = f.text_field :begin_box12, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box12, class: "input_number"
+            %tr
+              %td 20:00~21:00
+              %td 1000
+              %td 11000
+              %td.input_area
+                = f.text_field :begin_box13, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box13, class: "input_number"
+            %tr
+              %td 21:00~22:00
+              %td 1000
+              %td 12000
+              %td.input_area
+                = f.text_field :begin_box14, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box14, class: "input_number"
+            %tr
+              %td 22:00~23:00
+              %td 1000
+              %td 13000
+              %td.input_area
+                = f.text_field :begin_box15, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box15, class: "input_number"
+            %tr
+              %td 23:00~00:00
+              %td 1000
+              %td 14000
+              %td.input_area
+                = f.text_field :begin_box16, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box16, class: "input_number"
+            %tr
+              %td 00:00~01:00
+              %td 1000
+              %td 15000
+              %td.input_area
+                = f.text_field :begin_box17, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box17, class: "input_number"
+            %tr
+              %td 01:00~02:00
+              %td 1000
+              %td 16000
+              %td.input_area
+                = f.text_field :begin_box18, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box18, class: "input_number"
+            %tr
+              %td 02:00~03:00
+              %td 1000
+              %td 17000
+              %td.input_area
+                = f.text_field :begin_box19, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box19, class: "input_number"
+            %tr
+              %td 03:00~04:00
+              %td 1000
+              %td 18000
+              %td.input_area
+                = f.text_field :begin_box20, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box20, class: "input_number"
+            %tr
+              %td 04:00~05:00
+              %td 1000
+              %td 22000
+              %td.input_area
+                = f.text_field :begin_box21, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box21, class: "input_number"
+            %tr
+              %td 05:00~06:00
+              %td 1000
+              %td 22000
+              %td.input_area
+                = f.text_field :begin_box22, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box22, class: "input_number"
+            %tr
+              %td 06:00~07:00
+              %td 1000
+              %td 24000
+              %td.input_area
+                = f.text_field :begin_box23, class: "input_number"
+              %td　~
+              %td.input_area
+                = f.text_field :end_box23, class: "input_number"
   .main 
     .main__product
       .main__product__line
