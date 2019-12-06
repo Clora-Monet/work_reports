@@ -10,7 +10,7 @@ html, body {
   height: 100vh;
   background: #EFEBDD;
   .form {
-    width:660px;
+    width:350px;
     // background: yellow;
     padding: 10px;
     &__info {
@@ -42,14 +42,15 @@ html, body {
     &__table {
       margin-top: 15px;
       margin-left: 20px;
+      padding: 0px;
       // background: brown;
-      font-size: 16px;
+      font-size: 17px;
       text-align: center;
       font-weight: bold;
       th,td {
-        border: solid 1px;
-        border-color: #004970; 
-        padding: 2px 7px; 
+        border: solid 0.5px;
+        border-color: #004970;
+        padding: 1px 5px;
       }
       tr:nth-child(odd) {
         background-color:  #ddd;    /* 背景色指定 */
@@ -83,21 +84,25 @@ html, body {
         margin-top: 30px;
         &__code {
           height: 48px;
-          width: 278px;
+          width: 238px;
           // background: yellowgreen;
-          padding: 10px 20px;
+          padding: 10px 10px;
           line-height: 48px;
-          font-size: 40px;
+          font-size: 34px;
           letter-spacing: 10px;
           font-weight: bold;
           text-align: center;
           border-radius: 5px;
           border-style: solid;
           border-color: #004970;
+          &__num {
+            width: 225px;
+            letter-spacing: 7px;
+          }
         }
         &__name {
           height: 48px;
-          width: 498px;
+          width: 450px;
           line-height: 50px;
           // background: gray;
           margin-left: 30px;

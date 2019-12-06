@@ -21,7 +21,8 @@ class ProductionsController < ApplicationController
   end
 
   def create
-    Production.create(production_params)
+    product_id = Product.find_by(code: params[:production][:product_id]).id
+    Production.create(production_params.merge(product_id: product_id))
     @production = Production.new(production_params)
     redirect_to line_productions_path
   end
@@ -49,6 +50,7 @@ class ProductionsController < ApplicationController
                                         :end_box08, :end_box09, :end_box10, :end_box11, :end_box12, :end_box13, :end_box14, :end_box15, 
                                         :end_box16, :end_box17, :end_box18, :end_box19, :end_box20, :end_box21, :end_box22, :end_box23)
                                         .merge(line_id: params[:line_id])
+                                        # product_id: Product.find_by(code: [:product_id]).id,
   end
 
   def set_line
