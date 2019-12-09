@@ -30,6 +30,31 @@ class ProductionsController < ApplicationController
 
   def edit
     @production = Production.find(params[:id])
+
+
+    #単回帰分析
+    #配列の用意
+    x = Numpy.array([0,1,2,3,4,5,6,7,8,9])
+    y = Numpy.array([0,10,20,30,40,50,60,70,80,90])
+
+    #平均の算出
+    @x= x.mean()
+    @y= y.mean()
+
+    #中心化
+    xc = x - x.mean()
+    yc = y - y.mean()
+
+    #要素積
+    xx = xc * xc
+    xy = xc * yc
+
+    xx.sum()
+    xy.sum()
+
+    #パラメータ
+    @a = xy.sum()/xx.sum()
+
   end
 
   def update
