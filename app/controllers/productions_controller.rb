@@ -1,5 +1,6 @@
 class ProductionsController < ApplicationController
   before_action :set_line
+
   def index
     gon.date = ["7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", 
                 "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", 
@@ -55,9 +56,27 @@ class ProductionsController < ApplicationController
                   @production.end_box20,@production.end_box21,@production.end_box22,
                   @production.end_box23]
 
-    begin_boxs = Numpy.array(begin_boxs)
-    end_boxs = Numpy.array(end_boxs)
-    @per_boxs = end_boxs - begin_boxs
+    begin_boxs_compact = begin_boxs.compact
+    end_boxs_compact = end_boxs.compact
+
+
+    # @begin_boxs = @begin_boxs.map do |num|
+    #   if num == nil
+    #     0
+    #   else
+    #     num
+    #   end
+    # end
+
+   
+
+    
+    begin_boxs_py = Numpy.array(begin_boxs_compact)
+    end_boxs_py = Numpy.array(end_boxs_compact)
+
+    
+    # begin_boxs = PyCall.eval("['0' if n is nil else n for n in #{begin_boxs}]")
+    @per_boxs = end_boxs_py - begin_boxs_py
 
     #単回帰分析
     #配列の用意
