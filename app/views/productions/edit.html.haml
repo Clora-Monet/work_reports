@@ -235,12 +235,17 @@
     .main 
       .main__product
         .main__product__line
-          = @line.name
+          .main__product__line__name
+            = @line.name
+          .main__product__info__perbox
+            = @production.product.per_box
+            本
         .main__product__info
           .main__product__info__code
             = @production.product.code
           .main__product__info__name
-            = @production.product.name
+            -# = @production.product.name
+            = @end_boxs
       .main__graph
         .main__graph__image
           %canvas#myChart{height: "430", width: "800"}

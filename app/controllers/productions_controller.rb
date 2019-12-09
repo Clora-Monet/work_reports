@@ -34,6 +34,31 @@ class ProductionsController < ApplicationController
                 "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", 
                 "23:00", "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00"]
 
+    begin_boxs = []
+    end_box = []
+    begin_boxs = [@production.begin_box00,@production.begin_box01,@production.begin_box02,
+                  @production.begin_box03,@production.begin_box04,@production.begin_box05,
+                  @production.begin_box06,@production.begin_box07,@production.begin_box08,
+                  @production.begin_box09,@production.begin_box10,@production.begin_box11,
+                  @production.begin_box12,@production.begin_box13,@production.begin_box14,
+                  @production.begin_box15,@production.begin_box16,
+                  @production.begin_box17,@production.begin_box18,@production.begin_box19,
+                  @production.begin_box20,@production.begin_box21,@production.begin_box22,
+                  @production.begin_box23]
+    end_boxs = [@production.end_box00,@production.end_box01,@production.end_box02,
+                  @production.end_box03,@production.end_box04,@production.end_box05,
+                  @production.end_box06,@production.end_box07,@production.end_box08,
+                  @production.end_box09,@production.end_box10,@production.end_box11,
+                  @production.end_box12,@production.end_box13,@production.end_box14,
+                  @production.end_box15,@production.end_box16,
+                  @production.end_box17,@production.end_box18,@production.end_box19,
+                  @production.end_box20,@production.end_box21,@production.end_box22,
+                  @production.end_box23]
+
+    begin_boxs = Numpy.array(begin_boxs)
+    end_boxs = Numpy.array(end_boxs)
+    @per_boxs = end_boxs - begin_boxs
+
     #単回帰分析
     #配列の用意
     gon.x_box = [0,1,2,3,4,5,6,7,8,9]

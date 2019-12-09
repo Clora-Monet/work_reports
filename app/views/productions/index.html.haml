@@ -236,7 +236,10 @@
     .main 
       .main__product
         .main__product__line
-          = @line.name
+          .main__product__line__name
+            = @line.name
+          .main__product__info__perbox
+            入れ目
         .main__product__info
           .main__product__info__code
             = f.number_field :product_id, class: "main__product__info__code__num", placeholder: "製品コード"
