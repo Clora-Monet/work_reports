@@ -30,12 +30,16 @@ class ProductionsController < ApplicationController
 
   def edit
     @production = Production.find(params[:id])
-
+    gon.date = ["7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", 
+                "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", 
+                "23:00", "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00"]
 
     #単回帰分析
     #配列の用意
-    x = Numpy.array([0,1,2,3,4,5,6,7,8,9])
-    y = Numpy.array([0,10,20,30,40,50,60,70,80,90])
+    gon.x_box = [0,1,2,3,4,5,6,7,8,9]
+    gon.y_box = [0,10,20,30,40,50,60,70,80,90]
+    x = Numpy.array(gon.x_box)
+    y = Numpy.array(gon.y_box)
 
     #平均の算出
     @x= x.mean()

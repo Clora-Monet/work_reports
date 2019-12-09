@@ -1,0 +1,315 @@
+= form_for [@production], url: line_productions_path do |f|
+  .index 
+    .form
+      .form__info 
+        .form__info__date
+          = f.date_field :date
+        .form__info__post
+          = f.submit '送信', class: "form__info__post__btn"
+      .form__table
+        %table.table
+          %thead
+            %tr
+              %th 時間
+              %th 実数
+              %th 累計
+              %th 箱
+              %th _
+              %th 数
+            %tr
+              %td 7:00~8:00
+              %td 1000
+              %td 1000
+              %td.input_area
+                = f.text_field :begin_box00, class: "input_number"
+              %td〜
+              %td.input_area
+                = f.text_field :end_box00, class: "input_number"
+            %tr
+              %td 8:00~9:00
+              %td 1000
+              %td 2000
+              %td.input_area
+                = f.text_field :begin_box01, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box01, class: "input_number"
+            %tr
+              %td 9:00~10:00
+              %td 1000
+              %td 3000
+              %td.input_area
+                = f.text_field :begin_box02, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box02, class: "input_number"
+            %tr
+              %td 10:00~11:00
+              %td 1000
+              %td 3000
+              %td.input_area
+                = f.text_field :begin_box03, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box03, class: "input_number"
+            %tr
+              %td 11:00~12:00
+              %td 1000
+              %td 4000
+              %td.input_area
+                = f.text_field :begin_box04, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box04, class: "input_number"
+            %tr
+              %td 12:00~13:00
+              %td 1000
+              %td 4000
+              %td.input_area
+                = f.text_field :begin_box05, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box05, class: "input_number"
+            %tr
+              %td 13:00~14:00
+              %td 1000
+              %td 5000
+              %td.input_area
+                = f.text_field :begin_box06, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box06, class: "input_number"
+            %tr
+              %td 14:00~15:00
+              %td 1000
+              %td 6000
+              %td.input_area
+                = f.text_field :begin_box07, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box07, class: "input_number"
+            %tr
+              %td 15:00~16:00
+              %td 1000
+              %td 7000
+              %td.input_area
+                = f.text_field :begin_box08, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box08, class: "input_number"
+            %tr
+              %td 16:00~17:00
+              %td 1000
+              %td 8000
+              %td.input_area
+                = f.text_field :begin_box09, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box09, class: "input_number"
+            %tr
+              %td 17:00~18:00
+              %td 1000
+              %td 8000
+              %td.input_area
+                = f.text_field :begin_box10, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box10, class: "input_number"
+            %tr
+              %td 18:00~19:00
+              %td 1000
+              %td 9000
+              %td.input_area
+                = f.text_field :begin_box11, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box11, class: "input_number"
+            %tr
+              %td 19:00~20:00
+              %td 1000
+              %td 10000
+              %td.input_area
+                = f.text_field :begin_box12, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box12, class: "input_number"
+            %tr
+              %td 20:00~21:00
+              %td 1000
+              %td 11000
+              %td.input_area
+                = f.text_field :begin_box13, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box13, class: "input_number"
+            %tr
+              %td 21:00~22:00
+              %td 1000
+              %td 12000
+              %td.input_area
+                = f.text_field :begin_box14, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box14, class: "input_number"
+            %tr
+              %td 22:00~23:00
+              %td 1000
+              %td 13000
+              %td.input_area
+                = f.text_field :begin_box15, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box15, class: "input_number"
+            %tr
+              %td 23:00~00:00
+              %td 1000
+              %td 14000
+              %td.input_area
+                = f.text_field :begin_box16, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box16, class: "input_number"
+            %tr
+              %td 00:00~01:00
+              %td 1000
+              %td 15000
+              %td.input_area
+                = f.text_field :begin_box17, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box17, class: "input_number"
+            %tr
+              %td 01:00~02:00
+              %td 1000
+              %td 16000
+              %td.input_area
+                = f.text_field :begin_box18, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box18, class: "input_number"
+            %tr
+              %td 02:00~03:00
+              %td 1000
+              %td 17000
+              %td.input_area
+                = f.text_field :begin_box19, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box19, class: "input_number"
+            %tr
+              %td 03:00~04:00
+              %td 1000
+              %td 18000
+              %td.input_area
+                = f.text_field :begin_box20, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box20, class: "input_number"
+            %tr
+              %td 04:00~05:00
+              %td 1000
+              %td 22000
+              %td.input_area
+                = f.text_field :begin_box21, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box21, class: "input_number"
+            %tr
+              %td 05:00~06:00
+              %td 1000
+              %td 22000
+              %td.input_area
+                = f.text_field :begin_box22, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box22, class: "input_number"
+            %tr
+              %td 06:00~07:00
+              %td 1000
+              %td 24000
+              %td.input_area
+                = f.text_field :begin_box23, class: "input_number"
+              %td
+              %td.input_area
+                = f.text_field :end_box23, class: "input_number"
+    .main 
+      .main__product
+        .main__product__line
+          = @line.name
+        .main__product__info
+          .main__product__info__code
+            = @production.product.code
+          .main__product__info__name
+            = @production.product.name
+      .main__graph
+        .main__graph__image
+          %canvas#myChart{height: "430", width: "800"}
+          :javascript
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: gon.date,
+                datasets: [{
+                  label: "累計生産数",
+                  data: gon.cumulative_production,
+                  type: 'line',
+                  yAxisID: "y-axis-2",
+                  fill: false,
+                  borderColor: 'rgba(52, 147, 255, 1.0)',
+                },{
+                  label: "予想",
+                  data: gon.prediction,
+                  type: 'line',
+                  fill: false,
+                  yAxisID: "y-axis-2",
+                  borderColor: 'rgba(125, 215, 135, 1.0)',
+                },{
+                  label: "生産数",
+                  data: gon.y_box,
+                  backgroundColor: 'rgba(255, 99, 132, 1.0)',
+                  borderColor: 'rgba(255, 50, 132, 1.0)',
+                  fill: false,
+                  categoryPercentage: 1,
+                  yAxisID: "y-axis-1",
+                }]
+              },
+              options: {
+                title:  {
+                  display: true,
+                  text: "今日の生産数"
+                },
+                scales: {
+                  xAxes:[{
+                    categoryPercentage: 1,
+                  }],
+                  yAxes: [{
+                    id: "y-axis-1",
+                    type: "linear",
+                    position: "left",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "一時間当たりの生産数",
+                      fontSize: 14,
+                      fontColor: 'rgba(255, 99, 132, 1.0)'
+                    },
+                    ticks: {
+                      beginAtZero:true
+                    }
+                  },{
+                    id: "y-axis-2",
+                    type: "linear",
+                    position: "right",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "累計生産数",
+                      fontSize: 14,
+                      fontColor: 'rgba(52, 147, 255, 1.0)'
+                    },
+                    ticks: {
+                      beginAtZero:true
+                    }
+                  }]
+                }
+              }
+            });
