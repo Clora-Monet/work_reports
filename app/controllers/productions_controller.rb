@@ -11,8 +11,9 @@ class ProductionsController < ApplicationController
                       22400, 23800, 25200, 26600, 28000, 29400, 30800, 32200]
 
     
+    
+    
     @production = Production.new
-    @product = Product.new
 
   end
 
@@ -22,9 +23,9 @@ class ProductionsController < ApplicationController
 
   def create
     product_id = Product.find_by(code: params[:production][:product_id]).id
-    Production.create(production_params.merge(product_id: product_id))
-    @production = Production.new(production_params)
-    redirect_to line_productions_path
+    production_page = Production.create(production_params.merge(product_id: product_id))
+
+    redirect_to edit_line_production_path(line_id: production_page.line_id, id:production_page.id)
   end
 
   def edit
