@@ -18,8 +18,10 @@
               %th 数
             %tr
               %td 7:00~8:00
-              %td 1000
-              %td 1000
+              %td 
+                = @day_productions[0]
+              %td 
+                = @day_cumulative_productions[0]
               %td.input_area
                 = f.text_field :begin_box00, class: "input_number"
               %td〜
@@ -27,8 +29,10 @@
                 = f.text_field :end_box00, class: "input_number"
             %tr
               %td 8:00~9:00
-              %td 1000
-              %td 2000
+              %td 
+                = @day_productions[1]
+              %td 
+                = @day_cumulative_productions[1]
               %td.input_area
                 = f.text_field :begin_box01, class: "input_number"
               %td
@@ -36,8 +40,10 @@
                 = f.text_field :end_box01, class: "input_number"
             %tr
               %td 9:00~10:00
-              %td 1000
-              %td 3000
+              %td 
+                = @day_productions[2]
+              %td 
+                = @day_cumulative_productions[2]
               %td.input_area
                 = f.text_field :begin_box02, class: "input_number"
               %td
@@ -45,8 +51,10 @@
                 = f.text_field :end_box02, class: "input_number"
             %tr
               %td 10:00~11:00
-              %td 1000
-              %td 3000
+              %td 
+                = @day_productions[3]
+              %td 
+                = @day_cumulative_productions[3]
               %td.input_area
                 = f.text_field :begin_box03, class: "input_number"
               %td
@@ -54,8 +62,10 @@
                 = f.text_field :end_box03, class: "input_number"
             %tr
               %td 11:00~12:00
-              %td 1000
-              %td 4000
+              %td 
+                = @day_productions[4]
+              %td 
+                = @day_cumulative_productions[4]
               %td.input_area
                 = f.text_field :begin_box04, class: "input_number"
               %td
@@ -63,8 +73,10 @@
                 = f.text_field :end_box04, class: "input_number"
             %tr
               %td 12:00~13:00
-              %td 1000
-              %td 4000
+              %td 
+                = @day_productions[5]
+              %td 
+                = @day_cumulative_productions[5]
               %td.input_area
                 = f.text_field :begin_box05, class: "input_number"
               %td
@@ -72,8 +84,10 @@
                 = f.text_field :end_box05, class: "input_number"
             %tr
               %td 13:00~14:00
-              %td 1000
-              %td 5000
+              %td 
+                = @day_productions[6]
+              %td 
+                = @day_cumulative_productions[6]
               %td.input_area
                 = f.text_field :begin_box06, class: "input_number"
               %td
@@ -81,8 +95,8 @@
                 = f.text_field :end_box06, class: "input_number"
             %tr
               %td 14:00~15:00
-              %td 1000
-              %td 6000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box07, class: "input_number"
               %td
@@ -90,8 +104,8 @@
                 = f.text_field :end_box07, class: "input_number"
             %tr
               %td 15:00~16:00
-              %td 1000
-              %td 7000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box08, class: "input_number"
               %td
@@ -99,8 +113,8 @@
                 = f.text_field :end_box08, class: "input_number"
             %tr
               %td 16:00~17:00
-              %td 1000
-              %td 8000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box09, class: "input_number"
               %td
@@ -108,8 +122,8 @@
                 = f.text_field :end_box09, class: "input_number"
             %tr
               %td 17:00~18:00
-              %td 1000
-              %td 8000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box10, class: "input_number"
               %td
@@ -117,8 +131,8 @@
                 = f.text_field :end_box10, class: "input_number"
             %tr
               %td 18:00~19:00
-              %td 1000
-              %td 9000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box11, class: "input_number"
               %td
@@ -126,8 +140,8 @@
                 = f.text_field :end_box11, class: "input_number"
             %tr
               %td 19:00~20:00
-              %td 1000
-              %td 10000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box12, class: "input_number"
               %td
@@ -135,8 +149,8 @@
                 = f.text_field :end_box12, class: "input_number"
             %tr
               %td 20:00~21:00
-              %td 1000
-              %td 11000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box13, class: "input_number"
               %td
@@ -144,8 +158,8 @@
                 = f.text_field :end_box13, class: "input_number"
             %tr
               %td 21:00~22:00
-              %td 1000
-              %td 12000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box14, class: "input_number"
               %td
@@ -153,8 +167,8 @@
                 = f.text_field :end_box14, class: "input_number"
             %tr
               %td 22:00~23:00
-              %td 1000
-              %td 13000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box15, class: "input_number"
               %td
@@ -162,8 +176,8 @@
                 = f.text_field :end_box15, class: "input_number"
             %tr
               %td 23:00~00:00
-              %td 1000
-              %td 14000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box16, class: "input_number"
               %td
@@ -171,8 +185,8 @@
                 = f.text_field :end_box16, class: "input_number"
             %tr
               %td 00:00~01:00
-              %td 1000
-              %td 15000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box17, class: "input_number"
               %td
@@ -180,8 +194,8 @@
                 = f.text_field :end_box17, class: "input_number"
             %tr
               %td 01:00~02:00
-              %td 1000
-              %td 16000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box18, class: "input_number"
               %td
@@ -189,8 +203,8 @@
                 = f.text_field :end_box18, class: "input_number"
             %tr
               %td 02:00~03:00
-              %td 1000
-              %td 17000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box19, class: "input_number"
               %td
@@ -198,8 +212,8 @@
                 = f.text_field :end_box19, class: "input_number"
             %tr
               %td 03:00~04:00
-              %td 1000
-              %td 18000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box20, class: "input_number"
               %td
@@ -207,8 +221,8 @@
                 = f.text_field :end_box20, class: "input_number"
             %tr
               %td 04:00~05:00
-              %td 1000
-              %td 22000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box21, class: "input_number"
               %td
@@ -216,8 +230,8 @@
                 = f.text_field :end_box21, class: "input_number"
             %tr
               %td 05:00~06:00
-              %td 1000
-              %td 22000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box22, class: "input_number"
               %td
@@ -225,8 +239,8 @@
                 = f.text_field :end_box22, class: "input_number"
             %tr
               %td 06:00~07:00
-              %td 1000
-              %td 24000
+              %td 
+              %td 
               %td.input_area
                 = f.text_field :begin_box23, class: "input_number"
               %td
@@ -238,14 +252,14 @@
           .main__product__line__name
             = @line.name
           .main__product__info__perbox
-            = @production.product.per_box
+            = @production.product.per_case
             本
         .main__product__info
           .main__product__info__code
             = @production.product.code
           .main__product__info__name
             -# = @production.product.name
-            = @per_boxs
+            = @begin_box_index
       .main__graph
         .main__graph__image
           %canvas#myChart{height: "430", width: "800"}
@@ -257,21 +271,21 @@
                 labels: gon.date,
                 datasets: [{
                   label: "累計生産数",
-                  data: gon.cumulative_production,
+                  data: gon.day_cumulative_productions,
                   type: 'line',
                   yAxisID: "y-axis-2",
                   fill: false,
                   borderColor: 'rgba(52, 147, 255, 1.0)',
                 },{
                   label: "予想",
-                  data: gon.prediction,
+                  data: gon.productions_predict,
                   type: 'line',
                   fill: false,
                   yAxisID: "y-axis-2",
                   borderColor: 'rgba(125, 215, 135, 1.0)',
                 },{
                   label: "生産数",
-                  data: gon.y_box,
+                  data: gon.day_productions,
                   backgroundColor: 'rgba(255, 99, 132, 1.0)',
                   borderColor: 'rgba(255, 50, 132, 1.0)',
                   fill: false,
@@ -299,7 +313,8 @@
                       fontColor: 'rgba(255, 99, 132, 1.0)'
                     },
                     ticks: {
-                      beginAtZero:true
+                      beginAtZero:true,
+                      stepSize: gon.per_case
                     }
                   },{
                     id: "y-axis-2",

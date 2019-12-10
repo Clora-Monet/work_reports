@@ -1,18 +1,13 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 .index {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: #EFEBDD;
   .form {
-    width:350px;
+    width:450px;
     // background: yellow;
-    padding: 10px;
+    padding: 5px;
     &__info {
       display: flex;
       margin-top: 10px;
@@ -41,7 +36,7 @@ html, body {
     }
     &__table {
       margin-top: 15px;
-      margin-left: 20px;
+      margin-left: 10px;
       padding: 0px;
       // background: brown;
       font-size: 17px;
