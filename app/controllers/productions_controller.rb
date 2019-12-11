@@ -142,6 +142,7 @@ class ProductionsController < ApplicationController
 
     #パラメータの決定
     a = xy.sum()/xx.sum()
+    a = a.round
 
     #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
     parameters = []
@@ -197,16 +198,6 @@ class ProductionsController < ApplicationController
                                         :end_box08, :end_box09, :end_box10, :end_box11, :end_box12, :end_box13, :end_box14, :end_box15, 
                                         :end_box16, :end_box17, :end_box18, :end_box19, :end_box20, :end_box21, :end_box22, :end_box23)
                                         .merge(line_id: params[:line_id])
-  end
-
-  def production__update_params
-    params.require(:production).permit(:begin_box00, :begin_box01, :begin_box02, :begin_box03, :begin_box04, :begin_box05, :begin_box06, :begin_box07, 
-                                      :begin_box08, :begin_box09, :begin_box10, :begin_box11, :begin_box12, :begin_box13, :begin_box14, :begin_box15, 
-                                      :begin_box16, :begin_box17, :begin_box18, :begin_box19, :begin_box20, :begin_box21, :begin_box22, :begin_box23,
-                                      :end_box00, :end_box01, :end_box02, :end_box03, :end_box04, :end_box05, :end_box06, :end_box07, 
-                                      :end_box08, :end_box09, :end_box10, :end_box11, :end_box12, :end_box13, :end_box14, :end_box15, 
-                                      :end_box16, :end_box17, :end_box18, :end_box19, :end_box20, :end_box21, :end_box22, :end_box23)
-                                      .merge(line_id: params[:line_id])
   end
 
   def set_line
