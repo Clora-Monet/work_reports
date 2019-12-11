@@ -9,11 +9,7 @@ class ProductionsController < ApplicationController
     gon.cumulative_production = [nil]
     gon.prediction = [nil]
 
-    
-    
-    
     @production = Production.new
-
   end
 
   def new
@@ -122,28 +118,33 @@ class ProductionsController < ApplicationController
     per_boxs_cal = PyCall::List.(per_boxs_cal).to_a
     per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
 
-    x = Numpy.array(x)
-    y = Numpy.array(per_boxs_cumulative)
+    if per_boxs_cal.size > 1
+      x = Numpy.array(x)
+      y = Numpy.array(per_boxs_cumulative)
 
-    # #平均の算出
-    # x = x.mean()
-    # y = y.mean()
+      # #平均の算出
+      # x = x.mean()
+      # y = y.mean()
 
-    #中心化
-    xc = x - x.mean()
-    yc = y - y.mean()
+      #中心化
+      xc = x - x.mean()
+      yc = y - y.mean()
 
-    #要素積
-    xx = xc * xc
-    xy = xc * yc
+      #要素積
+      xx = xc * xc
+      xy = xc * yc
 
-    xx.sum()
-    xy.sum()
+      xx.sum()
+      xy.sum()
 
-    #パラメータの決定
-    a = xy.sum()/xx.sum()
-    a = a.round
-
+      #パラメータの決定
+      a = xy.sum()/xx.sum()
+      #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
+      a = a.round
+    else
+      a = per_boxs_cal[0] + 1
+    end
+    
     #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
     parameters = []
     (24 - begin_box_index).times.map do |es|
