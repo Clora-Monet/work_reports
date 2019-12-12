@@ -3,7 +3,7 @@
     .contents__title
       ライン一覧
       .search
-        = link_to "#", class: "search__btn" do
+        = link_to productions_searches_path, class: "search__btn" do
           検索
     .contents__lines-list
       - @lines.each do |line|
