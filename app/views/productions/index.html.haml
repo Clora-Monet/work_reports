@@ -4,7 +4,7 @@
     .form
       .form__info 
         .form__info__date
-          = f.date_field :date
+          = f.date_field :date, required: " "
         .form__info__post
           = f.submit '送信', class: "form__info__post__btn"
       .form__table
@@ -243,7 +243,7 @@
             入れ目
         .main__product__info
           .main__product__info__code
-            = f.number_field :product_id, class: "main__product__info__code__num", placeholder: "製品コード"
+            = f.number_field :product_id, class: "main__product__info__code__num",placeholder: "製品コード", required: " "
           .main__product__info__name
             製品名
       .main__graph

@@ -3,7 +3,7 @@ class LinesController < ApplicationController
   def index
     @line = Line.new
     @lines = Line.all
-  end
+  end 
 
   private
 
