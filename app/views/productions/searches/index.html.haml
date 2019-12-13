@@ -1,11 +1,11 @@
-= form_for [@production], url: productions_searches_path do |f|
+= form_for [@production], url: search_productions_searches_path, method: :get do |f|
   .index 
     .form
       .form__info 
         .form__info__date
           = f.date_field :date, required: " "
         .form__info__post
-          = f.submit '更新', class: "form__info__post__btn"
+          = f.submit '検索', class: "form__info__post__btn"
       .form__table
         %table.table
           %thead
