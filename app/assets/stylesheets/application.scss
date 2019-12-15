@@ -1,9 +1,8 @@
 @import "./reset";
 @import "lines";
 @import "productions";
-.main{
-  color: black;
-}
+@import "productions/searches";
+
 
 .tables{
   display: flex;

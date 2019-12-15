@@ -6,6 +6,7 @@
   justify-content: center;
   .contents {
     background: #82ADD9;
+    position: relative;
     &__title {
       text-align:center;
       background: #EFEBDD;
@@ -15,6 +16,25 @@
       margin: 30px 0;
       border-radius: 10px;
       color: #004970;
+      position: relative;
+      .search {
+        position: absolute;
+        font-weight: bold;
+        height: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        background: #eee273;
+        text-align: center;
+        border-radius: 10px;
+        left: 370px;
+        top: 12px;
+        width: 100px;
+        &__btn {
+          text-decoration: none;
+          color: #004970;
+          padding: 6px 20px;
+        }
+      }
     }
     &__lines-list {
       background: #EFEBDD;
@@ -28,7 +48,6 @@
       &__line {
         font-weight: bold;
         height: 50px;
-        // width: 200px;
         margin: 0 auto;
         line-height: 50px;
         font-size: 30px;

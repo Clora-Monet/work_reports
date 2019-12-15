@@ -1,0 +1,2 @@
+module Productions::SearchesHelper
+end

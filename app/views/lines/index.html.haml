@@ -2,11 +2,11 @@
   .contents
     .contents__title
       ライン一覧
+      .search
+        = link_to productions_searches_path, class: "search__btn" do
+          検索
     .contents__lines-list
       - @lines.each do |line|
         .contents__lines-list__line
           = link_to line_productions_path(line), class: "contents__lines-list__line__btn" do
             = line.name
-      -# .contents__lines-list__line
-      -#   = link_to "/lines/1/productions", class: "contents__lines-list__line__btn" do
-      -#     8F-9

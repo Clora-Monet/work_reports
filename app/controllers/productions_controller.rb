@@ -79,6 +79,8 @@ class ProductionsController < ApplicationController
 
     #単回帰のための準備
     boxs_difference_plus_py = Numpy.array(boxs_difference_plus)
+
+    #下で.sizeメソッドを使うための準備
     per_boxs_cal = boxs_difference_plus_py 
 
     #一時間ごとの生産数(実数)
@@ -108,7 +110,7 @@ class ProductionsController < ApplicationController
 
 
     #単回帰分析
-    #配列の用意
+    #横軸xの配列の用意
     x = []
     per_boxs_cal.size.times.map do |et|
       x.push(et)

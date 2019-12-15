@@ -1,0 +1,26 @@
+.main__product__line__name__select__box {
+  padding-bottom: 10px;
+  position: relative;
+}
+
+#production_line_id {
+  position: absolute;
+  height: 40px;
+  width: 130px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  top: 4px;
+  left: 4px;
+}
+
+.main__product__explain {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: bold;
+  color:  #004970;
+  border: solid;
+  border-radius: 10px;
+  border-color: #004970;
+  margin-top: 30px;
+  padding: 15px 10px;
+}
