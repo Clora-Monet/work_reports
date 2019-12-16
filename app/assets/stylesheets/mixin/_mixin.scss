@@ -1,0 +1,20 @@
+// フォントの設定(文字色,文字サイズ,文字の太さ)
+@mixin font-setting($color,$font-size,$font-weight) {
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+// 四角のエリアの設定(横,縦,背景色)
+@mixin square-setting($width,$height,$background-color) {
+  width: $width;
+  height: $height;
+  background-color: $background-color;
+}
+
+ // 枠線の設定(枠線の色,線の太さ,角の丸み)
+ @mixin frame_border($border-color, $border-style, $border-radius) {
+  border-color: $border-color;
+  border-style: $border-style;
+  border-radius: $border-radius;
+ }
