@@ -12,7 +12,7 @@
   background-color: $background-color;
 }
 
- // 枠線の設定
+ // 枠線の設定(枠線の色,線の太さ,角の丸み)
  @mixin frame_border($border-color, $border-style, $border-radius) {
   border-color: $border-color;
   border-style: $border-style;
