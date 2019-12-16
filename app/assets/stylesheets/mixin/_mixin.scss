@@ -11,3 +11,10 @@
   height: $height;
   background-color: $background-color;
 }
+
+ // 枠線の設定
+ @mixin frame_border($border-color, $border-style, $border-radius) {
+  border-color: $border-color;
+  border-style: $border-style;
+  border-radius: $border-radius;
+ }

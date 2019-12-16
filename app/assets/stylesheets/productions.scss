@@ -1,6 +1,6 @@
 .index {
   display: flex;
-  background:#EFEBDD;
+  background:$off_white;
   .form {
     width:450px;
     padding: 5px;
@@ -10,8 +10,7 @@
       margin-left: 30px;
       line-height: 50px;
       &__date {
-        height: 50px;
-        width: 150px;
+        @include square-setting(150px,50px,nil);
         line-height: 50px;
         border-radius: 5px;
       }
@@ -20,9 +19,8 @@
         margin-left: 40px;
         line-height: 50px;
         &__btn {
-          background: #eee273;
-          color: #004970;
-          font-size: 22px;
+          @include font-setting($deep_blue,22px,bold);
+          background: $yellow;
           text-decoration: none;          
           border-radius: 10px;
           padding: 7px 10px;
@@ -38,11 +36,11 @@
       font-weight: bold;
       th,td {
         border: solid 0.5px;
-        border-color: #004970;
+        border-color: $deep_blue;
         padding: 1px 5px;
       }
       tr:nth-child(odd) {
-        background-color:  #ddd;
+        background-color:  #dddddd;
       }
       .input_area {
         padding: 0px;
@@ -57,26 +55,20 @@
       &__line {
         display: flex;
         &__name {
-          height: 28px;
-          width: 118px;
+          @include square-setting(118px,28px,nil);
+          @include frame_border($deep_blue,solid,5px);
           padding: 10px;
           line-height: 30px;
           font-size: 30px;
           text-align: center;
-          border-radius: 5px;
-          border-style: solid;
-          border-color: #004970;
         }
         .main__product__info__perbox {
-          height: 28px;
-          width: 130px;
+          @include square-setting(130px,28px,nil);
+          @include frame_border($deep_blue,solid,5px);
           padding: 10px;
           line-height: 30px;
           font-size: 30px;
           text-align: center;
-          border-radius: 5px;
-          border-style: solid;
-          border-color: #004970;
           margin-left: 150px;
         }
       }
@@ -84,32 +76,25 @@
         display: flex;
         margin-top: 30px;
         &__code {
-          height: 48px;
-          width: 238px;
+          @include font-setting(black,34px,bold);
+          @include square-setting(238px,48px,nil);
+          @include frame_border($deep_blue,solid,5px);
           padding: 10px 10px;
           line-height: 48px;
-          font-size: 34px;
           letter-spacing: 10px;
-          font-weight: bold;
           text-align: center;
-          border-radius: 5px;
-          border-style: solid;
-          border-color: #004970;
           &__num {
             width: 225px;
             letter-spacing: 7px;
           }
         }
         &__name {
-          height: 48px;
-          width: 450px;
+          @include font-setting(black,30px,bold);
+          @include square-setting(450px,48px,nil);
+          @include frame_border($deep_blue,solid,5px);
           line-height: 50px;
           margin-left: 30px;
           padding: 10px 20px;
-          font-size: 30px;
-          border-radius: 5px;
-          border-style: solid;
-          border-color: #004970;
         }
       }
     }
@@ -119,15 +104,13 @@
       justify-content: center;
       height: calc(100vh - 190px);
       &__image {
-        height: 450px;
-        width: 800px;
+        @include square-setting(800px,450px,nil);
       }
     }
   }
 }
 
 .input_number {
-  width: 33px;
-  height: 15px;
+  @include square-setting(33px,15px,nil);
 }
 
