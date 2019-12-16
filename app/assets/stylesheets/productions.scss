@@ -4,7 +4,6 @@
   background:#EFEBDD;
   .form {
     width:450px;
-    // background: yellow;
     padding: 5px;
     &__info {
       display: flex;
@@ -12,7 +11,6 @@
       margin-left: 30px;
       line-height: 50px;
       &__date {
-        // background: coral;
         height: 50px;
         width: 150px;
         line-height: 50px;
@@ -36,7 +34,6 @@
       margin-top: 15px;
       margin-left: 10px;
       padding: 0px;
-      // background: brown;
       font-size: 17px;
       text-align: center;
       font-weight: bold;
@@ -46,7 +43,7 @@
         padding: 1px 5px;
       }
       tr:nth-child(odd) {
-        background-color:  #ddd;    /* 背景色指定 */
+        background-color:  #ddd;
       }
       .input_area {
         padding: 0px;
@@ -54,10 +51,8 @@
     }
   }
   .main {
-    // background: red;
     width: 100%;
     &__product {
-      // background: blue;
       padding: 20px;
       height: 150px;
       &__line {
@@ -65,7 +60,6 @@
         &__name {
           height: 28px;
           width: 118px;
-          // background: yellow;
           padding: 10px;
           line-height: 30px;
           font-size: 30px;
@@ -77,7 +71,6 @@
         .main__product__info__perbox {
           height: 28px;
           width: 130px;
-          // background: yellow;
           padding: 10px;
           line-height: 30px;
           font-size: 30px;
@@ -94,7 +87,6 @@
         &__code {
           height: 48px;
           width: 238px;
-          // background: yellowgreen;
           padding: 10px 10px;
           line-height: 48px;
           font-size: 34px;
@@ -113,7 +105,6 @@
           height: 48px;
           width: 450px;
           line-height: 50px;
-          // background: gray;
           margin-left: 30px;
           padding: 10px 20px;
           font-size: 30px;
@@ -127,10 +118,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      // background: yellowgreen;
       height: calc(100vh - 190px);
       &__image {
-        // background: cadetblue;
         height: 450px;
         width: 800px;
       }
