@@ -9,6 +9,10 @@ class ProductionsController < ApplicationController
     gon.cumulative_production = [nil]
     gon.prediction = [nil]
 
+    @times = ["7:00~8:00","8:00~9:00","9:00~10:00","10:00~11:00","11:00~12:00","12:00~13:00","13:00~14:00","14:00~15:00",
+              "15:00~16:00","16:00~17:00","17:00~18:00","18:00~19:00","19:00~20:00","20:00~21:00","21:00~22:00","22:00~23:00",
+              "23:00~0:00","0:00~1:00","1:00~2:00","2:00~3:00","3:00~4:00","4:00~5:00","5:00~6:00","6:00~7:00"]
+
     @production = Production.new
   end
 
@@ -31,24 +35,22 @@ class ProductionsController < ApplicationController
 
     begin_boxs = []
     end_box = []
-    begin_boxs = [@production.begin_box00,@production.begin_box01,@production.begin_box02,
-                  @production.begin_box03,@production.begin_box04,@production.begin_box05,
-                  @production.begin_box06,@production.begin_box07,@production.begin_box08,
-                  @production.begin_box09,@production.begin_box10,@production.begin_box11,
-                  @production.begin_box12,@production.begin_box13,@production.begin_box14,
-                  @production.begin_box15,@production.begin_box16,
-                  @production.begin_box17,@production.begin_box18,@production.begin_box19,
-                  @production.begin_box20,@production.begin_box21,@production.begin_box22,
-                  @production.begin_box23]
-    end_boxs = [@production.end_box00,@production.end_box01,@production.end_box02,
-                  @production.end_box03,@production.end_box04,@production.end_box05,
-                  @production.end_box06,@production.end_box07,@production.end_box08,
-                  @production.end_box09,@production.end_box10,@production.end_box11,
-                  @production.end_box12,@production.end_box13,@production.end_box14,
-                  @production.end_box15,@production.end_box16,
-                  @production.end_box17,@production.end_box18,@production.end_box19,
-                  @production.end_box20,@production.end_box21,@production.end_box22,
-                  @production.end_box23]
+    begin_boxs = [@production.begin_box1,@production.begin_box2,@production.begin_box3,
+                  @production.begin_box4,@production.begin_box5,@production.begin_box6,
+                  @production.begin_box7,@production.begin_box8,@production.begin_box9,
+                  @production.begin_box10,@production.begin_box11,@production.begin_box12,
+                  @production.begin_box13,@production.begin_box14,@production.begin_box15,
+                  @production.begin_box16,@production.begin_box17,@production.begin_box18,
+                  @production.begin_box19,@production.begin_box20,@production.begin_box21,
+                  @production.begin_box22,@production.begin_box23,@production.begin_box24]
+    end_boxs = [@production.end_box1,@production.end_box2,@production.end_box3,
+                @production.end_box4,@production.end_box5,@production.end_box6,
+                @production.end_box7,@production.end_box8,@production.end_box9,
+                @production.end_box10,@production.end_box11,@production.end_box12,
+                @production.end_box13,@production.end_box14,@production.end_box15,
+                @production.end_box16,@production.end_box17,@production.end_box18,
+                @production.end_box19,@production.end_box20,@production.end_box21,
+                @production.end_box22,@production.end_box23,@production.end_box24]
     
     #No.1の箱までのnilの数
     begin_box_index = begin_boxs.index(1)
@@ -194,12 +196,12 @@ class ProductionsController < ApplicationController
   private
   def production_params
     params.require(:production).permit(:date,
-                                        :begin_box00, :begin_box01, :begin_box02, :begin_box03, :begin_box04, :begin_box05, :begin_box06, :begin_box07, 
-                                        :begin_box08, :begin_box09, :begin_box10, :begin_box11, :begin_box12, :begin_box13, :begin_box14, :begin_box15, 
-                                        :begin_box16, :begin_box17, :begin_box18, :begin_box19, :begin_box20, :begin_box21, :begin_box22, :begin_box23,
-                                        :end_box00, :end_box01, :end_box02, :end_box03, :end_box04, :end_box05, :end_box06, :end_box07, 
-                                        :end_box08, :end_box09, :end_box10, :end_box11, :end_box12, :end_box13, :end_box14, :end_box15, 
-                                        :end_box16, :end_box17, :end_box18, :end_box19, :end_box20, :end_box21, :end_box22, :end_box23)
+                                        :begin_box1, :begin_box2, :begin_box3, :begin_box4, :begin_box5, :begin_box6, :begin_box7, :begin_box8,  
+                                        :begin_box9, :begin_box10, :begin_box11, :begin_box12, :begin_box13, :begin_box14, :begin_box15,:begin_box16, 
+                                        :begin_box17, :begin_box18, :begin_box19, :begin_box20, :begin_box21, :begin_box22, :begin_box23, :begin_box24,
+                                        :end_box1, :end_box2, :end_box3, :end_box4, :end_box5, :end_box6, :end_box7, :end_box8,
+                                        :end_box9, :end_box10, :end_box11, :end_box12, :end_box13, :end_box14, :end_box15, :end_box16,
+                                        :end_box17, :end_box18, :end_box19, :end_box20, :end_box21, :end_box22, :end_box23, :end_box24)
                                         .merge(line_id: params[:line_id])
   end
 

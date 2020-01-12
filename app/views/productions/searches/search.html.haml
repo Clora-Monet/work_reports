@@ -15,8 +15,8 @@
               %th 実数
               %th 累計
               %th 箱
-              %th _
-              %th 数
+              %th 番
+              %th 号
             %tr
               %td 7:00~8:00
               %td 
@@ -24,10 +24,10 @@
               %td 
                 = @day_cumulative_productions[0]
               %td.input_area
-                = @production_result.begin_box00
+                = @production_result.begin_box1
               %td〜
               %td.input_area
-                = @production_result.end_box00
+                = @production_result.end_box1
             %tr
               %td 8:00~9:00
               %td 
@@ -35,10 +35,10 @@
               %td 
                 = @day_cumulative_productions[1]
               %td.input_area
-                = @production_result.begin_box01
+                = @production_result.begin_box2
               %td
               %td.input_area
-                = @production_result.end_box01
+                = @production_result.end_box2
             %tr
               %td 9:00~10:00
               %td 
@@ -46,10 +46,10 @@
               %td 
                 = @day_cumulative_productions[2]
               %td.input_area
-                = @production_result.begin_box02
+                = @production_result.begin_box3
               %td
               %td.input_area
-                = @production_result.end_box02
+                = @production_result.end_box3
             %tr
               %td 10:00~11:00
               %td 
@@ -57,10 +57,10 @@
               %td 
                 = @day_cumulative_productions[3]
               %td.input_area
-                = @production_result.begin_box03
+                = @production_result.begin_box4
               %td
               %td.input_area
-                = @production_result.end_box03
+                = @production_result.end_box4
             %tr
               %td 11:00~12:00
               %td 
@@ -68,10 +68,10 @@
               %td 
                 = @day_cumulative_productions[4]
               %td.input_area
-                = @production_result.begin_box04
+                = @production_result.begin_box5
               %td
               %td.input_area
-                = @production_result.end_box04
+                = @production_result.end_box5
             %tr
               %td 12:00~13:00
               %td 
@@ -79,10 +79,10 @@
               %td 
                 = @day_cumulative_productions[5]
               %td.input_area
-                = @production_result.begin_box05
+                = @production_result.begin_box6
               %td
               %td.input_area
-                = @production_result.end_box05
+                = @production_result.end_box6
             %tr
               %td 13:00~14:00
               %td 
@@ -90,10 +90,10 @@
               %td 
                 = @day_cumulative_productions[6]
               %td.input_area
-                = @production_result.begin_box06
+                = @production_result.begin_box7
               %td
               %td.input_area
-                = @production_result.end_box06
+                = @production_result.end_box7
             %tr
               %td 14:00~15:00
               %td 
@@ -101,10 +101,10 @@
               %td 
                 = @day_cumulative_productions[7] 
               %td.input_area
-                = @production_result.begin_box07
+                = @production_result.begin_box8
               %td
               %td.input_area
-                = @production_result.end_box07
+                = @production_result.end_box8
             %tr
               %td 15:00~16:00
               %td 
@@ -112,10 +112,10 @@
               %td 
                 = @day_cumulative_productions[8]
               %td.input_area
-                = @production_result.begin_box08
+                = @production_result.begin_box9
               %td
               %td.input_area
-                = @production_result.end_box08
+                = @production_result.end_box9
             %tr
               %td 16:00~17:00
               %td 
@@ -123,10 +123,10 @@
               %td 
                 = @day_cumulative_productions[9] 
               %td.input_area
-                = @production_result.begin_box09
+                = @production_result.begin_box10
               %td
               %td.input_area
-                = @production_result.end_box09
+                = @production_result.end_box10
             %tr
               %td 17:00~18:00
               %td 
@@ -134,10 +134,10 @@
               %td 
                 = @day_cumulative_productions[10] 
               %td.input_area
-                = @production_result.begin_box10
+                = @production_result.begin_box11
               %td
               %td.input_area
-                = @production_result.end_box10
+                = @production_result.end_box11
             %tr
               %td 18:00~19:00
               %td 
@@ -145,10 +145,10 @@
               %td 
                 = @day_cumulative_productions[11] 
               %td.input_area
-                = @production_result.begin_box11
+                = @production_result.begin_box12
               %td
               %td.input_area
-                = @production_result.end_box11
+                = @production_result.end_box12
             %tr
               %td 19:00~20:00
               %td 
@@ -156,10 +156,10 @@
               %td 
                 = @day_cumulative_productions[12] 
               %td.input_area
-                = @production_result.begin_box12
+                = @production_result.begin_box13
               %td
               %td.input_area
-                = @production_result.end_box12
+                = @production_result.end_box13
             %tr
               %td 20:00~21:00
               %td 
@@ -167,10 +167,10 @@
               %td 
                 = @day_cumulative_productions[13] 
               %td.input_area
-                = @production_result.begin_box13
+                = @production_result.begin_box14
               %td
               %td.input_area
-                = @production_result.end_box13
+                = @production_result.end_box14
             %tr
               %td 21:00~22:00
               %td 
@@ -178,10 +178,10 @@
               %td 
                 = @day_cumulative_productions[14] 
               %td.input_area
-                = @production_result.begin_box14
+                = @production_result.begin_box15
               %td
               %td.input_area
-                = @production_result.end_box14
+                = @production_result.end_box15
             %tr
               %td 22:00~23:00
               %td 
@@ -189,10 +189,10 @@
               %td 
                 = @day_cumulative_productions[15] 
               %td.input_area
-                = @production_result.begin_box15
+                = @production_result.begin_box16
               %td
               %td.input_area
-                = @production_result.end_box15
+                = @production_result.end_box16
             %tr
               %td 23:00~00:00
               %td 
@@ -200,10 +200,10 @@
               %td 
                 = @day_cumulative_productions[16] 
               %td.input_area
-                = @production_result.begin_box16
+                = @production_result.begin_box17
               %td
               %td.input_area
-                = @production_result.end_box16
+                = @production_result.end_box17
             %tr
               %td 00:00~01:00
               %td 
@@ -211,10 +211,10 @@
               %td 
                 = @day_cumulative_productions[17] 
               %td.input_area
-                = @production_result.begin_box17
+                = @production_result.begin_box18
               %td
               %td.input_area
-                = @production_result.end_box17
+                = @production_result.end_box18
             %tr
               %td 01:00~02:00
               %td 
@@ -222,10 +222,10 @@
               %td 
                 = @day_cumulative_productions[18] 
               %td.input_area
-                = @production_result.begin_box18
+                = @production_result.begin_box19
               %td
               %td.input_area
-                = @production_result.end_box18
+                = @production_result.end_box19
             %tr
               %td 02:00~03:00
               %td 
@@ -233,10 +233,10 @@
               %td 
                 = @day_cumulative_productions[19] 
               %td.input_area
-                = @production_result.begin_box19
+                = @production_result.begin_box20
               %td
               %td.input_area
-                = @production_result.end_box19
+                = @production_result.end_box20
             %tr
               %td 03:00~04:00
               %td 
@@ -244,10 +244,10 @@
               %td 
                 = @day_cumulative_productions[20] 
               %td.input_area
-                = @production_result.begin_box20
+                = @production_result.begin_box21
               %td
               %td.input_area
-                = @production_result.end_box20
+                = @production_result.end_box21
             %tr
               %td 04:00~05:00
               %td 
@@ -255,10 +255,10 @@
               %td 
                 = @day_cumulative_productions[21] 
               %td.input_area
-                = @production_result.begin_box21
+                = @production_result.begin_box22
               %td
               %td.input_area
-                = @production_result.end_box21
+                = @production_result.end_box22
             %tr
               %td 05:00~06:00
               %td 
@@ -266,10 +266,10 @@
               %td 
                 = @day_cumulative_productions[22] 
               %td.input_area
-                = @production_result.begin_box22
+                = @production_result.begin_box23
               %td
               %td.input_area
-                = @production_result.end_box22
+                = @production_result.end_box23
             %tr
               %td 06:00~07:00
               %td 
@@ -277,10 +277,10 @@
               %td 
                 = @day_cumulative_productions[23] 
               %td.input_area
-                = @production_result.begin_box23
+                = @production_result.begin_box24
               %td
               %td.input_area
-                = @production_result.end_box23
+                = @production_result.end_box24
     .main 
       .main__product
         .main__product__line
@@ -311,7 +311,7 @@
                   fill: false,
                   borderColor: 'rgba(52, 147, 255, 1.0)',
                 },{
-                  label: "予想",
+                  label: "",
                   data: gon.productions_predict,
                   type: 'line',
                   fill: false,

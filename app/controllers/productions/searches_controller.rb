@@ -11,24 +11,22 @@ class Productions::SearchesController < ApplicationController
                 "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", 
                 "23:00", "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00"]
 
-    begin_boxs = [@production_result.begin_box00,@production_result.begin_box01,@production_result.begin_box02,
-                  @production_result.begin_box03,@production_result.begin_box04,@production_result.begin_box05,
-                  @production_result.begin_box06,@production_result.begin_box07,@production_result.begin_box08,
-                  @production_result.begin_box09,@production_result.begin_box10,@production_result.begin_box11,
-                  @production_result.begin_box12,@production_result.begin_box13,@production_result.begin_box14,
-                  @production_result.begin_box15,@production_result.begin_box16,
-                  @production_result.begin_box17,@production_result.begin_box18,@production_result.begin_box19,
-                  @production_result.begin_box20,@production_result.begin_box21,@production_result.begin_box22,
-                  @production_result.begin_box23]
-    end_boxs = [@production_result.end_box00,@production_result.end_box01,@production_result.end_box02,
-                @production_result.end_box03,@production_result.end_box04,@production_result.end_box05,
-                @production_result.end_box06,@production_result.end_box07,@production_result.end_box08,
-                @production_result.end_box09,@production_result.end_box10,@production_result.end_box11,
-                @production_result.end_box12,@production_result.end_box13,@production_result.end_box14,
-                @production_result.end_box15,@production_result.end_box16,
-                @production_result.end_box17,@production_result.end_box18,@production_result.end_box19,
-                @production_result.end_box20,@production_result.end_box21,@production_result.end_box22,
-                @production_result.end_box23]
+  begin_boxs = [@production_result.begin_box1,@production_result.begin_box2,@production_result.begin_box3,
+                @production_result.begin_box4,@production_result.begin_box5,@production_result.begin_box6,
+                @production_result.begin_box7,@production_result.begin_box8,@production_result.begin_box9,
+                @production_result.begin_box10,@production_result.begin_box11,@production_result.begin_box12,
+                @production_result.begin_box13,@production_result.begin_box14,@production_result.begin_box15,
+                @production_result.begin_box16,@production_result.begin_box17,@production_result.begin_box18,
+                @production_result.begin_box19,@production_result.begin_box20,@production_result.begin_box21,
+                @production_result.begin_box22,@production_result.begin_box23,@production_result.begin_box24]
+  end_boxs = [@production_result.end_box1,@production_result.end_box2,@production_result.end_box3,
+              @production_result.end_box4,@production_result.end_box5,@production_result.end_box6,
+              @production_result.end_box7,@production_result.end_box8,@production_result.end_box9,
+              @production_result.end_box10,@production_result.end_box11,@production_result.end_box12,
+              @production_result.end_box13,@production_result.end_box14,@production_result.end_box15,
+              @production_result.end_box16,@production_result.end_box17,@production_result.end_box18,
+              @production_result.end_box19,@production_result.end_box20,@production_result.end_box21,
+              @production_result.end_box22,@production_result.end_box23,@production_result.end_box24]
 
     #No.1の箱までのnilの数
     begin_box_index = begin_boxs.index(1)
@@ -65,6 +63,15 @@ class Productions::SearchesController < ApplicationController
     @day_productions = PyCall::List.(day_productions).to_a
     #累計の計算(day_cumulative_productions=一時間ごとの生産数の累計)
     @day_cumulative_productions = @day_productions.size.times.map{|i| @day_productions[0..i].inject(:+)}
+
+    #配列の先頭にnilを追加
+    begin_box_index.times do |i|
+      @day_productions.unshift(nil)
+    end
+
+    begin_box_index.times do |i|
+      @day_cumulative_productions.unshift(nil)
+    end
 
     #グラフに反映するために、gonに格納
     gon.day_productions = @day_productions

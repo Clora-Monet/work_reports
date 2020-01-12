@@ -4,16 +4,15 @@ class CreateProductions < ActiveRecord::Migration[5.0]
       t.datetime :date
       t.references :product, foreign_key: true
       t.references :line, foreign_key: true
-      t.integer :begin_box00
-      t.integer :begin_box01
-      t.integer :begin_box02
-      t.integer :begin_box03
-      t.integer :begin_box04
-      t.integer :begin_box05
-      t.integer :begin_box06
-      t.integer :begin_box07
-      t.integer :begin_box08
-      t.integer :begin_box09
+      t.integer :begin_box1
+      t.integer :begin_box2
+      t.integer :begin_box3
+      t.integer :begin_box4
+      t.integer :begin_box5
+      t.integer :begin_box6
+      t.integer :begin_box7
+      t.integer :begin_box8
+      t.integer :begin_box9
       t.integer :begin_box10
       t.integer :begin_box11
       t.integer :begin_box12
@@ -28,16 +27,16 @@ class CreateProductions < ActiveRecord::Migration[5.0]
       t.integer :begin_box21
       t.integer :begin_box22
       t.integer :begin_box23
-      t.integer :end_box00
-      t.integer :end_box01
-      t.integer :end_box02
-      t.integer :end_box03
-      t.integer :end_box04
-      t.integer :end_box05
-      t.integer :end_box06
-      t.integer :end_box07
-      t.integer :end_box08
-      t.integer :end_box09
+      t.integer :begin_box24
+      t.integer :end_box1
+      t.integer :end_box2
+      t.integer :end_box3
+      t.integer :end_box4
+      t.integer :end_box5
+      t.integer :end_box6
+      t.integer :end_box7
+      t.integer :end_box8
+      t.integer :end_box9
       t.integer :end_box10
       t.integer :end_box11
       t.integer :end_box12
@@ -52,6 +51,7 @@ class CreateProductions < ActiveRecord::Migration[5.0]
       t.integer :end_box21
       t.integer :end_box22
       t.integer :end_box23
+      t.integer :end_box24
       t.timestamps
     end
   end

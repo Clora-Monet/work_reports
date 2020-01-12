@@ -14,8 +14,8 @@
               %th 実数
               %th 累計
               %th 箱
-              %th _
-              %th 数
+              %th 番
+              %th 号
             %tr
               %td 7:00~8:00
               %td 
@@ -23,10 +23,10 @@
               %td 
                 = @day_cumulative_productions[0]
               %td.input_area
-                = f.text_field :begin_box00, class: "input_number"
+                = f.text_field :begin_box1, class: "input_number"
               %td〜
               %td.input_area
-                = f.text_field :end_box00, class: "input_number"
+                = f.text_field :end_box1, class: "input_number"
             %tr
               %td 8:00~9:00
               %td 
@@ -34,10 +34,10 @@
               %td 
                 = @day_cumulative_productions[1]
               %td.input_area
-                = f.text_field :begin_box01, class: "input_number"
+                = f.text_field :begin_box2, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box01, class: "input_number"
+                = f.text_field :end_box2, class: "input_number"
             %tr
               %td 9:00~10:00
               %td 
@@ -45,10 +45,10 @@
               %td 
                 = @day_cumulative_productions[2]
               %td.input_area
-                = f.text_field :begin_box02, class: "input_number"
+                = f.text_field :begin_box3, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box02, class: "input_number"
+                = f.text_field :end_box3, class: "input_number"
             %tr
               %td 10:00~11:00
               %td 
@@ -56,10 +56,10 @@
               %td 
                 = @day_cumulative_productions[3]
               %td.input_area
-                = f.text_field :begin_box03, class: "input_number"
+                = f.text_field :begin_box4, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box03, class: "input_number"
+                = f.text_field :end_box4, class: "input_number"
             %tr
               %td 11:00~12:00
               %td 
@@ -67,10 +67,10 @@
               %td 
                 = @day_cumulative_productions[4]
               %td.input_area
-                = f.text_field :begin_box04, class: "input_number"
+                = f.text_field :begin_box5, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box04, class: "input_number"
+                = f.text_field :end_box5, class: "input_number"
             %tr
               %td 12:00~13:00
               %td 
@@ -78,10 +78,10 @@
               %td 
                 = @day_cumulative_productions[5]
               %td.input_area
-                = f.text_field :begin_box05, class: "input_number"
+                = f.text_field :begin_box6, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box05, class: "input_number"
+                = f.text_field :end_box6, class: "input_number"
             %tr
               %td 13:00~14:00
               %td 
@@ -89,10 +89,10 @@
               %td 
                 = @day_cumulative_productions[6]
               %td.input_area
-                = f.text_field :begin_box06, class: "input_number"
+                = f.text_field :begin_box7, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box06, class: "input_number"
+                = f.text_field :end_box7, class: "input_number"
             %tr
               %td 14:00~15:00
               %td 
@@ -100,10 +100,10 @@
               %td 
                 = @day_cumulative_productions[7] 
               %td.input_area
-                = f.text_field :begin_box07, class: "input_number"
+                = f.text_field :begin_box8, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box07, class: "input_number"
+                = f.text_field :end_box8, class: "input_number"
             %tr
               %td 15:00~16:00
               %td 
@@ -111,10 +111,10 @@
               %td 
                 = @day_cumulative_productions[8]
               %td.input_area
-                = f.text_field :begin_box08, class: "input_number"
+                = f.text_field :begin_box9, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box08, class: "input_number"
+                = f.text_field :end_box9, class: "input_number"
             %tr
               %td 16:00~17:00
               %td 
@@ -122,10 +122,10 @@
               %td 
                 = @day_cumulative_productions[9] 
               %td.input_area
-                = f.text_field :begin_box09, class: "input_number"
+                = f.text_field :begin_box10, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box09, class: "input_number"
+                = f.text_field :end_box10, class: "input_number"
             %tr
               %td 17:00~18:00
               %td 
@@ -133,10 +133,10 @@
               %td 
                 = @day_cumulative_productions[10] 
               %td.input_area
-                = f.text_field :begin_box10, class: "input_number"
+                = f.text_field :begin_box11, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box10, class: "input_number"
+                = f.text_field :end_box11, class: "input_number"
             %tr
               %td 18:00~19:00
               %td 
@@ -144,10 +144,10 @@
               %td 
                 = @day_cumulative_productions[11] 
               %td.input_area
-                = f.text_field :begin_box11, class: "input_number"
+                = f.text_field :begin_box12, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box11, class: "input_number"
+                = f.text_field :end_box12, class: "input_number"
             %tr
               %td 19:00~20:00
               %td 
@@ -155,10 +155,10 @@
               %td 
                 = @day_cumulative_productions[12] 
               %td.input_area
-                = f.text_field :begin_box12, class: "input_number"
+                = f.text_field :begin_box13, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box12, class: "input_number"
+                = f.text_field :end_box13, class: "input_number"
             %tr
               %td 20:00~21:00
               %td 
@@ -166,10 +166,10 @@
               %td 
                 = @day_cumulative_productions[13] 
               %td.input_area
-                = f.text_field :begin_box13, class: "input_number"
+                = f.text_field :begin_box14, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box13, class: "input_number"
+                = f.text_field :end_box14, class: "input_number"
             %tr
               %td 21:00~22:00
               %td 
@@ -177,10 +177,10 @@
               %td 
                 = @day_cumulative_productions[14] 
               %td.input_area
-                = f.text_field :begin_box14, class: "input_number"
+                = f.text_field :begin_box15, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box14, class: "input_number"
+                = f.text_field :end_box15, class: "input_number"
             %tr
               %td 22:00~23:00
               %td 
@@ -188,10 +188,10 @@
               %td 
                 = @day_cumulative_productions[15] 
               %td.input_area
-                = f.text_field :begin_box15, class: "input_number"
+                = f.text_field :begin_box16, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box15, class: "input_number"
+                = f.text_field :end_box16, class: "input_number"
             %tr
               %td 23:00~00:00
               %td 
@@ -199,10 +199,10 @@
               %td 
                 = @day_cumulative_productions[16] 
               %td.input_area
-                = f.text_field :begin_box16, class: "input_number"
+                = f.text_field :begin_box17, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box16, class: "input_number"
+                = f.text_field :end_box17, class: "input_number"
             %tr
               %td 00:00~01:00
               %td 
@@ -210,10 +210,10 @@
               %td 
                 = @day_cumulative_productions[17] 
               %td.input_area
-                = f.text_field :begin_box17, class: "input_number"
+                = f.text_field :begin_box18, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box17, class: "input_number"
+                = f.text_field :end_box18, class: "input_number"
             %tr
               %td 01:00~02:00
               %td 
@@ -221,10 +221,10 @@
               %td 
                 = @day_cumulative_productions[18] 
               %td.input_area
-                = f.text_field :begin_box18, class: "input_number"
+                = f.text_field :begin_box19, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box18, class: "input_number"
+                = f.text_field :end_box19, class: "input_number"
             %tr
               %td 02:00~03:00
               %td 
@@ -232,10 +232,10 @@
               %td 
                 = @day_cumulative_productions[19] 
               %td.input_area
-                = f.text_field :begin_box19, class: "input_number"
+                = f.text_field :begin_box20, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box19, class: "input_number"
+                = f.text_field :end_box20, class: "input_number"
             %tr
               %td 03:00~04:00
               %td 
@@ -243,10 +243,10 @@
               %td 
                 = @day_cumulative_productions[20] 
               %td.input_area
-                = f.text_field :begin_box20, class: "input_number"
+                = f.text_field :begin_box21, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box20, class: "input_number"
+                = f.text_field :end_box21, class: "input_number"
             %tr
               %td 04:00~05:00
               %td 
@@ -254,10 +254,10 @@
               %td 
                 = @day_cumulative_productions[21] 
               %td.input_area
-                = f.text_field :begin_box21, class: "input_number"
+                = f.text_field :begin_box22, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box21, class: "input_number"
+                = f.text_field :end_box22, class: "input_number"
             %tr
               %td 05:00~06:00
               %td 
@@ -265,10 +265,10 @@
               %td 
                 = @day_cumulative_productions[22] 
               %td.input_area
-                = f.text_field :begin_box22, class: "input_number"
+                = f.text_field :begin_box23, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box22, class: "input_number"
+                = f.text_field :end_box23, class: "input_number"
             %tr
               %td 06:00~07:00
               %td 
@@ -276,10 +276,10 @@
               %td 
                 = @day_cumulative_productions[23] 
               %td.input_area
-                = f.text_field :begin_box23, class: "input_number"
+                = f.text_field :begin_box24, class: "input_number"
               %td
               %td.input_area
-                = f.text_field :end_box23, class: "input_number"
+                = f.text_field :end_box24, class: "input_number"
     .main 
       .main__product
         .main__product__line
