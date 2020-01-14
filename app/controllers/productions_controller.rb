@@ -1,4 +1,5 @@
 class ProductionsController < ApplicationController
+  include ApplicationHelper
   before_action :set_line
 
   def index
@@ -29,8 +30,6 @@ class ProductionsController < ApplicationController
                 "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", 
                 "23:00", "0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00"]
 
-    begin_boxs = []
-    end_box = []
     begin_boxs = [@production.begin_box1,@production.begin_box2,@production.begin_box3,
                   @production.begin_box4,@production.begin_box5,@production.begin_box6,
                   @production.begin_box7,@production.begin_box8,@production.begin_box9,
@@ -121,10 +120,6 @@ class ProductionsController < ApplicationController
     if per_boxs_cal.size > 1
       x = Numpy.array(x)
       y = Numpy.array(per_boxs_cumulative)
-
-      # #平均の算出
-      # x = x.mean()
-      # y = y.mean()
 
       #中心化
       xc = x - x.mean()
