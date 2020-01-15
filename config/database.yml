@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: work_reports_production
-  username: work_reports
-  password: <%= ENV['WORK_REPORTS_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
