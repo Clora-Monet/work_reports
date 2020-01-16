@@ -74,20 +74,18 @@ class ProductionsController < ApplicationController
       end
     end
 
-    #単回帰のための準備
-    boxs_difference_plus_py = Numpy.array(boxs_difference_plus)
-
     #下で.sizeメソッドを使うための準備
-    per_boxs_cal = boxs_difference_plus_py 
+    per_boxs_cal = boxs_difference_plus
 
     #一時間ごとの生産数(実数)
-    day_productions = boxs_difference_plus_py * per_case
+    @day_productions = []
+    boxs_difference_plus.each do |b|
+      number = b * per_case
+      @day_productions.push(number)
+    end
 
     #単回帰用に準備
-    day_productions_cal = day_productions
-
-    #pythonの配列からrubyの配列に変換
-    @day_productions = PyCall::List.(day_productions).to_a
+    day_productions_cal = @day_productions
     
     #累計の計算(day_cumulative_productions=一時間ごとの生産数の累計)
     @day_cumulative_productions = @day_productions.size.times.map{|i| @day_productions[0..i].inject(:+)}
