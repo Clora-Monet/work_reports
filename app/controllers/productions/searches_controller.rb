@@ -37,11 +37,7 @@ class Productions::SearchesController < ApplicationController
 
     #入れ目の取得
     per_case = @production_result.product.per_case
-
-    #配列をpythonのnumpyの形にする
-    begin_boxs_py = Numpy.array(begin_boxs_compact)
-    end_boxs_py = Numpy.array(end_boxs_compact)
-
+    
     #一時間あたりのできた箱数の計算
     #まずは差分を取る
     @boxs_difference = []
