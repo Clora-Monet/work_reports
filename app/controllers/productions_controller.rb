@@ -123,9 +123,19 @@ class ProductionsController < ApplicationController
       y_mean = ys.inject(:+) / ys.length
 
       #中心化
-      # xc = x - x.mean()
-      # yc = y - y.mean()
+      @xcs = []
+      @ycs = []
 
+      xs.each do |x|
+        xc = x - x_mean
+        @xcs.push(xc)
+      end
+
+      ys.each do |y|
+        yc = y - y_mean
+        @ycs.push(yc)
+      end
+      
     #   #要素積
     #   xx = xc * xc
     #   xy = xc * yc
