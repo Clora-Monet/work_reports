@@ -57,16 +57,16 @@ class ProductionsController < ApplicationController
     #入れ目の取得
     per_case = @production.product.per_case
 
-    #配列をpythonのnumpyの形にする
-    begin_boxs_py = Numpy.array(begin_boxs_compact)
-    end_boxs_py = Numpy.array(end_boxs_compact)
-
     #一時間あたりのできた箱数の計算
     #まずは差分を取る
-    boxs_difference_py = end_boxs_py - begin_boxs_py
-    boxs_difference = PyCall::List.(boxs_difference_py).to_a
+    @boxs_difference = []
+    end_boxs_compact.zip(begin_boxs_compact).each do |end_box, begin_box|
+      box_difference = end_box - begin_box
+      @boxs_difference.push(box_difference)
+    end
+    
     #差分が0のときはそのまま、0以外の時はプラス1をする。プラス1をしないと、正確な一時間にできた箱数にならない
-    boxs_difference_plus = boxs_difference.map do |i|
+    boxs_difference_plus = @boxs_difference.map do |i|
       if i != 0
         i = i + 1
       else
@@ -74,20 +74,18 @@ class ProductionsController < ApplicationController
       end
     end
 
-    #単回帰のための準備
-    boxs_difference_plus_py = Numpy.array(boxs_difference_plus)
-
     #下で.sizeメソッドを使うための準備
-    per_boxs_cal = boxs_difference_plus_py 
+    per_boxs_cal = boxs_difference_plus
 
     #一時間ごとの生産数(実数)
-    day_productions = boxs_difference_plus_py * per_case
+    @day_productions = []
+    boxs_difference_plus.each do |b|
+      number = b * per_case
+      @day_productions.push(number)
+    end
 
     #単回帰用に準備
-    day_productions_cal = day_productions
-
-    #pythonの配列からrubyの配列に変換
-    @day_productions = PyCall::List.(day_productions).to_a
+    day_productions_cal = @day_productions
     
     #累計の計算(day_cumulative_productions=一時間ごとの生産数の累計)
     @day_cumulative_productions = @day_productions.size.times.map{|i| @day_productions[0..i].inject(:+)}
@@ -106,34 +104,54 @@ class ProductionsController < ApplicationController
     gon.day_cumulative_productions = @day_cumulative_productions
 
 
-    #単回帰分析
-    #横軸xの配列の用意
-    x = []
-    per_boxs_cal.size.times.map do |et|
-      x.push(et)
-      et = et + 1
+    # 単回帰分析
+    # 横軸xのための配列の用意
+    xs = []
+    per_boxs_cal.size.times.map do |x|
+      xs.push(x)
+      x = x + 1
     end
 
-    per_boxs_cal = PyCall::List.(per_boxs_cal).to_a
+    #累計の算出
     per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
 
     if per_boxs_cal.size > 1
-      x = Numpy.array(x)
-      y = Numpy.array(per_boxs_cumulative)
+      ys = per_boxs_cumulative
+
+      #xとyの平均値を求める
+      x_mean = xs.inject(:+) / xs.length
+      y_mean = ys.inject(:+) / ys.length
 
       #中心化
-      xc = x - x.mean()
-      yc = y - y.mean()
+      @xcs = []
+      @ycs = []
 
+      xs.each do |x|
+        xc = x - x_mean
+        @xcs.push(xc)
+      end
+
+      ys.each do |y|
+        yc = y - y_mean
+        @ycs.push(yc)
+      end
+      
       #要素積
-      xx = xc * xc
-      xy = xc * yc
+      @xxs = []
+      @xys = []
 
-      xx.sum()
-      xy.sum()
+      @xcs.zip(@xcs).each do |xc_1, xc_2|
+        xx = xc_1 * xc_2
+        @xxs.push(xx)
+      end
 
-      #パラメータの決定
-      a = xy.sum()/xx.sum()
+      @xcs.zip(@ycs).each do |xc, yc|
+        xy = xc * yc
+        @xys.push(xy)
+      end
+
+      # パラメータの決定
+      a = @xys.sum/@xxs.sum
       #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
       a = a.round
     else
@@ -147,11 +165,14 @@ class ProductionsController < ApplicationController
     end
 
     #パラメータが入った配列に入れ目をかける
-    parameters_py = Numpy.array(parameters)
-    parameters_per_case = parameters_py * per_case
-    parameters_per_case = PyCall::List.(parameters_per_case).to_a
+    @parameters_per_case = []
+    parameters.each do |parameter|
+      parameter_per_case = parameter * per_case
+      @parameters_per_case.push(parameter_per_case)
+    end
+    
     #累計を計算する計算
-    parameters_per_case_cumulative = parameters_per_case.size.times.map{|i| parameters_per_case[0..i].inject(:+)}
+    parameters_per_case_cumulative = @parameters_per_case.size.times.map{|i| @parameters_per_case[0..i].inject(:+)}
     #先頭の空白の分だけnilを配列の先頭に加える
     if begin_box_index == 0
       @productions_predict = parameters_per_case_cumulative
