@@ -158,33 +158,36 @@ class ProductionsController < ApplicationController
       a = per_boxs_cal[0] + 1
     end
     
-    # #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
-    # parameters = []
-    # (24 - begin_box_index).times.map do |es|
-    #   parameters.push(a)
-    # end
+    #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
+    parameters = []
+    (24 - begin_box_index).times.map do |es|
+      parameters.push(a)
+    end
 
-    # #パラメータが入った配列に入れ目をかける
-    # parameters_py = Numpy.array(parameters)
-    # parameters_per_case = parameters_py * per_case
-    # parameters_per_case = PyCall::List.(parameters_per_case).to_a
-    # #累計を計算する計算
-    # parameters_per_case_cumulative = parameters_per_case.size.times.map{|i| parameters_per_case[0..i].inject(:+)}
-    # #先頭の空白の分だけnilを配列の先頭に加える
-    # if begin_box_index == 0
-    #   @productions_predict = parameters_per_case_cumulative
-    # else
-    #   begin_box_index.times do |i|
-    #     @productions_predict = parameters_per_case_cumulative.unshift(nil)
-    #   end
-    # end
-    # #単回帰モデルの完成(productions_predict)
-    # gon.productions_predict = @productions_predict
+    #パラメータが入った配列に入れ目をかける
+    @parameters_per_case = []
+    parameters.each do |parameter|
+      parameter_per_case = parameter * per_case
+      @parameters_per_case.push(parameter_per_case)
+    end
+    
+    #累計を計算する計算
+    parameters_per_case_cumulative = @parameters_per_case.size.times.map{|i| @parameters_per_case[0..i].inject(:+)}
+    #先頭の空白の分だけnilを配列の先頭に加える
+    if begin_box_index == 0
+      @productions_predict = parameters_per_case_cumulative
+    else
+      begin_box_index.times do |i|
+        @productions_predict = parameters_per_case_cumulative.unshift(nil)
+      end
+    end
+    #単回帰モデルの完成(productions_predict)
+    gon.productions_predict = @productions_predict
 
-    # #縦軸の目盛間隔を入れ目と同じにするための準備
-    # gon.per_case = per_case
+    #縦軸の目盛間隔を入れ目と同じにするための準備
+    gon.per_case = per_case
 
-    # @begin_box_index = begin_box_index
+    @begin_box_index = begin_box_index
   end
 
   def update
