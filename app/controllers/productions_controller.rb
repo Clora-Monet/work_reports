@@ -63,10 +63,15 @@ class ProductionsController < ApplicationController
 
     #一時間あたりのできた箱数の計算
     #まずは差分を取る
-    boxs_difference_py = end_boxs_py - begin_boxs_py
-    boxs_difference = PyCall::List.(boxs_difference_py).to_a
+    @boxs_difference = []
+    end_boxs_compact.zip(begin_boxs_compact).each do |end_box, begin_box|
+      box_difference = end_box - begin_box
+      @boxs_difference.push(box_difference)
+    end
+    # boxs_difference_py = end_boxs_py - begin_boxs_py
+    # boxs_difference = PyCall::List.(boxs_difference_py).to_a
     #差分が0のときはそのまま、0以外の時はプラス1をする。プラス1をしないと、正確な一時間にできた箱数にならない
-    boxs_difference_plus = boxs_difference.map do |i|
+    boxs_difference_plus = @boxs_difference.map do |i|
       if i != 0
         i = i + 1
       else
@@ -106,65 +111,65 @@ class ProductionsController < ApplicationController
 
     #単回帰分析
     #横軸xの配列の用意
-    x = []
-    per_boxs_cal.size.times.map do |et|
-      x.push(et)
-      et = et + 1
-    end
+    # x = []
+    # per_boxs_cal.size.times.map do |et|
+    #   x.push(et)
+    #   et = et + 1
+    # end
 
-    per_boxs_cal = PyCall::List.(per_boxs_cal).to_a
-    per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
+    # per_boxs_cal = PyCall::List.(per_boxs_cal).to_a
+    # per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
 
-    if per_boxs_cal.size > 1
-      x = Numpy.array(x)
-      y = Numpy.array(per_boxs_cumulative)
+    # if per_boxs_cal.size > 1
+    #   x = Numpy.array(x)
+    #   y = Numpy.array(per_boxs_cumulative)
 
-      #中心化
-      xc = x - x.mean()
-      yc = y - y.mean()
+    #   #中心化
+    #   xc = x - x.mean()
+    #   yc = y - y.mean()
 
-      #要素積
-      xx = xc * xc
-      xy = xc * yc
+    #   #要素積
+    #   xx = xc * xc
+    #   xy = xc * yc
 
-      xx.sum()
-      xy.sum()
+    #   xx.sum()
+    #   xy.sum()
 
-      #パラメータの決定
-      a = xy.sum()/xx.sum()
-      #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
-      a = a.round
-    else
-      a = per_boxs_cal[0] + 1
-    end
+    #   #パラメータの決定
+    #   a = xy.sum()/xx.sum()
+    #   #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
+    #   a = a.round
+    # else
+    #   a = per_boxs_cal[0] + 1
+    # end
     
-    #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
-    parameters = []
-    (24 - begin_box_index).times.map do |es|
-      parameters.push(a)
-    end
+    # #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
+    # parameters = []
+    # (24 - begin_box_index).times.map do |es|
+    #   parameters.push(a)
+    # end
 
-    #パラメータが入った配列に入れ目をかける
-    parameters_py = Numpy.array(parameters)
-    parameters_per_case = parameters_py * per_case
-    parameters_per_case = PyCall::List.(parameters_per_case).to_a
-    #累計を計算する計算
-    parameters_per_case_cumulative = parameters_per_case.size.times.map{|i| parameters_per_case[0..i].inject(:+)}
-    #先頭の空白の分だけnilを配列の先頭に加える
-    if begin_box_index == 0
-      @productions_predict = parameters_per_case_cumulative
-    else
-      begin_box_index.times do |i|
-        @productions_predict = parameters_per_case_cumulative.unshift(nil)
-      end
-    end
-    #単回帰モデルの完成(productions_predict)
-    gon.productions_predict = @productions_predict
+    # #パラメータが入った配列に入れ目をかける
+    # parameters_py = Numpy.array(parameters)
+    # parameters_per_case = parameters_py * per_case
+    # parameters_per_case = PyCall::List.(parameters_per_case).to_a
+    # #累計を計算する計算
+    # parameters_per_case_cumulative = parameters_per_case.size.times.map{|i| parameters_per_case[0..i].inject(:+)}
+    # #先頭の空白の分だけnilを配列の先頭に加える
+    # if begin_box_index == 0
+    #   @productions_predict = parameters_per_case_cumulative
+    # else
+    #   begin_box_index.times do |i|
+    #     @productions_predict = parameters_per_case_cumulative.unshift(nil)
+    #   end
+    # end
+    # #単回帰モデルの完成(productions_predict)
+    # gon.productions_predict = @productions_predict
 
-    #縦軸の目盛間隔を入れ目と同じにするための準備
-    gon.per_case = per_case
+    # #縦軸の目盛間隔を入れ目と同じにするための準備
+    # gon.per_case = per_case
 
-    @begin_box_index = begin_box_index
+    # @begin_box_index = begin_box_index
   end
 
   def update
