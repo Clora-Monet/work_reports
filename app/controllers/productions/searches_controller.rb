@@ -37,7 +37,7 @@ class Productions::SearchesController < ApplicationController
 
     #入れ目の取得
     per_case = @production_result.product.per_case
-    
+
     #一時間あたりのできた箱数の計算
     #まずは差分を取る
     @boxs_difference = []
