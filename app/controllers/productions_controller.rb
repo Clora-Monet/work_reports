@@ -136,9 +136,19 @@ class ProductionsController < ApplicationController
         @ycs.push(yc)
       end
       
-    #   #要素積
-    #   xx = xc * xc
-    #   xy = xc * yc
+      #要素積
+      @xxs = []
+      @xys = []
+
+      @xcs.zip(@xcs).each do |xc_1, xc_2|
+        xx = xc_1 * xc_2
+        @xxs.push(xx)
+      end
+
+      @xcs.zip(@ycs).each do |xc, yc|
+        xy = xc * yc
+        @xys.push(xy)
+      end
 
     #   xx.sum()
     #   xy.sum()
