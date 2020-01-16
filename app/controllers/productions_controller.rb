@@ -150,15 +150,12 @@ class ProductionsController < ApplicationController
         @xys.push(xy)
       end
 
-    #   xx.sum()
-    #   xy.sum()
-
-    #   #パラメータの決定
-    #   a = xy.sum()/xx.sum()
-    #   #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
-    #   a = a.round
-    # else
-    #   a = per_boxs_cal[0] + 1
+      # パラメータの決定
+      a = @xys.sum/@xxs.sum
+      #パラメータの四捨五入(aが少数になると、予測する生産数が少数になるため)
+      a = a.round
+    else
+      a = per_boxs_cal[0] + 1
     end
     
     # #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
