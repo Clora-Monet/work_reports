@@ -57,10 +57,6 @@ class ProductionsController < ApplicationController
     #入れ目の取得
     per_case = @production.product.per_case
 
-    #配列をpythonのnumpyの形にする
-    begin_boxs_py = Numpy.array(begin_boxs_compact)
-    end_boxs_py = Numpy.array(end_boxs_compact)
-
     #一時間あたりのできた箱数の計算
     #まずは差分を取る
     @boxs_difference = []
@@ -68,8 +64,7 @@ class ProductionsController < ApplicationController
       box_difference = end_box - begin_box
       @boxs_difference.push(box_difference)
     end
-    # boxs_difference_py = end_boxs_py - begin_boxs_py
-    # boxs_difference = PyCall::List.(boxs_difference_py).to_a
+    
     #差分が0のときはそのまま、0以外の時はプラス1をする。プラス1をしないと、正確な一時間にできた箱数にならない
     boxs_difference_plus = @boxs_difference.map do |i|
       if i != 0
@@ -109,24 +104,27 @@ class ProductionsController < ApplicationController
     gon.day_cumulative_productions = @day_cumulative_productions
 
 
-    #単回帰分析
-    #横軸xの配列の用意
-    # x = []
-    # per_boxs_cal.size.times.map do |et|
-    #   x.push(et)
-    #   et = et + 1
-    # end
+    # 単回帰分析
+    # 横軸xのための配列の用意
+    xs = []
+    per_boxs_cal.size.times.map do |x|
+      xs.push(x)
+      x = x + 1
+    end
 
-    # per_boxs_cal = PyCall::List.(per_boxs_cal).to_a
-    # per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
+    #累計の算出
+    per_boxs_cumulative = per_boxs_cal.size.times.map{|i| per_boxs_cal[0..i].inject(:+)}
 
-    # if per_boxs_cal.size > 1
-    #   x = Numpy.array(x)
-    #   y = Numpy.array(per_boxs_cumulative)
+    if per_boxs_cal.size > 1
+      ys = per_boxs_cumulative
 
-    #   #中心化
-    #   xc = x - x.mean()
-    #   yc = y - y.mean()
+      #xとyの平均値を求める
+      x_mean = xs.inject(:+) / xs.length
+      y_mean = ys.inject(:+) / ys.length
+
+      #中心化
+      # xc = x - x.mean()
+      # yc = y - y.mean()
 
     #   #要素積
     #   xx = xc * xc
@@ -141,7 +139,7 @@ class ProductionsController < ApplicationController
     #   a = a.round
     # else
     #   a = per_boxs_cal[0] + 1
-    # end
+    end
     
     # #先頭の空白の部分を除いた分だけ、パラメータaが入った配列を用意する
     # parameters = []
