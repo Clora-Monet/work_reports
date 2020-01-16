@@ -67,5 +67,5 @@ gem "chartkick"
 gem 'chartable'
 gem 'chart-js-rails'
 gem 'gon'
-gem 'pycall'
+
 gem 'numpy'

@@ -236,7 +236,6 @@ DEPENDENCIES
   pg
   pry-rails
   puma (~> 3.0)
-  pycall
   rails (~> 5.0.7, >= 5.0.7.2)
   sass-rails (~> 5.0)
   spring
