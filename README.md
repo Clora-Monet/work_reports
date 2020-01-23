@@ -1,8 +1,8 @@
 # README
 ## アプリ名
-### WORK_REPORT(能率伝票)<br><br>
-url: https://nouritudenpyou007.herokuapp.com/<br><br>
-![work_reports](https://user-images.githubusercontent.com/56475566/73001190-65cfbc80-3e45-11ea-9cad-297569ec4ea2.gif)
+### WORK_REPORT(能率伝票)<br>
+![work_reports](https://user-images.githubusercontent.com/56475566/73001190-65cfbc80-3e45-11ea-9cad-297569ec4ea2.gif)<br>
+url: https://nouritudenpyou007.herokuapp.com/
 ## アプリの概要
 生産数を記録するための能率伝票をアプリケーション化しました。1時間にできた箱番号を入力するだけで、1時間当たりの生産数や累計生産数をグラフで表示します。加えて、今後の生産数の推移を予測して表示します。また、過去の記録を参照しやすいように、検索機能を実装しました。
 ## 制作背景
