@@ -1,6 +1,6 @@
 # README
 ## アプリ名
-WORK_REPORT(能率伝票)<br><br>
+### WORK_REPORT(能率伝票)<br><br>
 url: https://nouritudenpyou007.herokuapp.com/<br><br>
 ![work_reports](https://user-images.githubusercontent.com/56475566/73001190-65cfbc80-3e45-11ea-9cad-297569ec4ea2.gif)
 ## アプリの概要
@@ -17,3 +17,5 @@ url: https://nouritudenpyou007.herokuapp.com/<br><br>
 3.送信ボタンを押してください。<br>
 4.以後は、箱番号を入力して更新ボタンを押すと更新されます。<br>
 詳しい説明はアプリ内にスライドがあるので、参考にしてください。
+## 開発環境
+Ruby on Rails 5.0.7.2, ruby 2.5.1
